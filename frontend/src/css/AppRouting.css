@@ -1,0 +1,66 @@
+.app-routing {
+	text-align: center;
+	background-color: #282c34;
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	text-wrap: wrap;
+}
+
+.route-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: black;
+}
+
+.app-header {
+	width: 100%;
+	background-color: var(--primary-color);
+	/* background-color: var(--secondary-color); */
+	/* background-color: var(--tertiary-color); */
+	
+}
+
+.app-title {
+
+	/* color: var(--primary-color); */
+	color: black;
+
+	font-family: var( --primary-font );
+	font-size: var( --primary-font-size );
+	font-weight: var( --primary-font-weight );
+	padding: 0px;
+	margin: 0px;
+}
+
+.nav-bar {
+	display: flex;
+	width: 100%;
+	background-color: whitesmoke;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+
+.nav-item {
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	border-bottom: 5px solid whitesmoke;
+	padding: 10px;
+	transition: 0.2s;
+}
+
+.nav-item:hover {
+	cursor: pointer;
+	border-bottom: 5px solid var(--secondary-color);
+}
+
+.nav-item.active {
+	border-bottom: 5px solid var(--primary-color);
+}

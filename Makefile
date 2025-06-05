@@ -1,15 +1,15 @@
 
-start-frontend:
+run-frontend:
 	cd frontend && npm start
 
-start-backend:
+run-backend:
 	cd backend && node index.js
 
 # PRETTIER
 
-prettier-check:
+check-prettier:
 	npx prettier . -c
 
-prettier-format:
+run-prettier:
 	npx prettier . -w
 
