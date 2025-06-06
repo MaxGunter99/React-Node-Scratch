@@ -12,12 +12,12 @@
 }
 
 .route-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background-color: black;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background-color: black;
 }
 
 .app-header {
@@ -25,17 +25,15 @@
 	background-color: var(--primary-color);
 	/* background-color: var(--secondary-color); */
 	/* background-color: var(--tertiary-color); */
-	
 }
 
 .app-title {
-
 	/* color: var(--primary-color); */
 	color: black;
 
-	font-family: var( --primary-font );
-	font-size: var( --primary-font-size );
-	font-weight: var( --primary-font-weight );
+	font-family: var(--primary-font);
+	font-size: var(--primary-font-size);
+	font-weight: var(--primary-font-weight);
 	padding: 0px;
 	margin: 0px;
 }

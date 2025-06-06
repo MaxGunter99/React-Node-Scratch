@@ -1,0 +1,18 @@
+
+.WeatherContainer {
+    display: flex;
+    /* width: 100%; */
+    /* flex-direction: column; */
+    border: 3px solid white;
+    flex-grow: inherit;
+}
+
+.weatherSection {
+    border: 3px solid white
+}
+
+p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
