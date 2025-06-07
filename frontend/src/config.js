@@ -16,8 +16,14 @@ const config = {
 document.documentElement.style.setProperty("--primary-color", config.primaryColor);
 document.documentElement.style.setProperty("--secondary-color", config.secondaryColor);
 document.documentElement.style.setProperty("--tertiary-color", config.tertiaryColor);
-document.documentElement.style.setProperty("--primary-background-color", config.primaryBackgroundColor);
-document.documentElement.style.setProperty("--secondary-background-color", config.secondaryBackgroundColor);
+document.documentElement.style.setProperty(
+	"--primary-background-color",
+	config.primaryBackgroundColor
+);
+document.documentElement.style.setProperty(
+	"--secondary-background-color",
+	config.secondaryBackgroundColor
+);
 
 document.documentElement.style.setProperty("--primary-font", config.primaryFont);
 document.documentElement.style.setProperty("--primary-font-size", config.primaryFontSize);

@@ -1,0 +1,39 @@
+.AppContainer {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	text-align: left;
+	padding: 1.5em;
+}
+
+.Description {
+	text-indent: 1.5em;
+	background-color: var(--secondary-background-color);
+	margin: 10px;
+	padding: 10px;
+	/* width: 100%; */
+	border-radius: 5px;
+}
+.Description p {
+	padding: 10px;
+}
+
+.ToolContainer {
+	width: 90%;
+	margin: 0 auto;
+	background-color: var(--secondary-background-color);
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.ToolDetailsContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.ToolTitle {
+	margin: 0px;
+	font-family: var(--primary-font);
+	font-weight: var(--primary-font-weight);
+}

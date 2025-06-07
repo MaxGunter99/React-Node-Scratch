@@ -41,6 +41,11 @@ export default function Weather() {
 			const maxHoursOld = 1;
 			const maxMinutesOld = 60 * maxHoursOld;
 
+			console.log("Recieved:", parsedTimeReceived);
+			console.log("Now:", now);
+			console.log(diffMinutes);
+			console.log(maxMinutesOld);
+
 			if (diffMinutes >= maxMinutesOld) {
 				console.log("Data in storage is older than 1 hour old");
 				localStorage.removeItem("weatherData");
@@ -49,10 +54,9 @@ export default function Weather() {
 				console.log("Data in storage is less than 1 hour old");
 			}
 		}
-	}, [ weatherData ]);
+	}, [weatherData]);
 
 	useEffect(() => {
-
 		var currentWeatherData = null;
 
 		if (weatherData == null && coordinates != null) {
@@ -66,40 +70,37 @@ export default function Weather() {
 			}
 			fetchWeather();
 		}
+	}, [coordinates]);
 
-	}, [ coordinates ]);
-
-	useEffect( () => {
-
-		if (weatherData && coordinates ) {
+	useEffect(() => {
+		if (weatherData && coordinates) {
 			setLoading(false);
 		}
+	}, [weatherData, coordinates]);
 
-	}, [weatherData, coordinates] );
-
-	if ( loading === true ) {
+	if (loading === true) {
 		return <p>Loading Weather Data!</p>;
-
 	} else {
 		return (
 			<div className="WeatherContainer">
-
 				<div className="HeadingSection">
-
 					<div>
-
 						<h2 className="SectionTitle">The Weather</h2>
-						<p>in {weatherData?.location?.name}, {weatherData?.location?.region}</p>
-
+						<p>
+							in {weatherData?.location?.name}, {weatherData?.location?.region}
+						</p>
 					</div>
 
-					<img className="CurrentConditionImage" src={weatherData?.current?.condition?.icon} />
-
+					<img
+						className="CurrentConditionImage"
+						src={weatherData?.current?.condition?.icon}
+					/>
 				</div>
-				
 
 				<div className="DataSection">
-					<p>{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF</p>
+					<p>
+						{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
+					</p>
 
 					<p>{weatherData?.location?.country}</p>
 					<p>
@@ -113,16 +114,13 @@ export default function Weather() {
 						})}
 					</p>
 					<p>{weatherData?.location?.tz_id}</p>
-
 				</div>
-
 			</div>
 		);
 	}
 }
 
 async function getWeatherData(coordinates) {
-
 	var latitude = coordinates[0];
 	var longitude = coordinates[1];
 	const weatherAPIURL = "http://api.weatherapi.com/v1/current.json";

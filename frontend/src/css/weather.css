@@ -11,8 +11,7 @@
 	background-color: white;
 	align-items: center;
 	text-align: left;
-	padding: 20px;
-	width: 80%;
+	width: 100%;
 	justify-content: space-between;
 }
 
@@ -28,17 +27,10 @@
 }
 
 .CurrentConditionImage {
-	/* height: 150px;
-	width: auto;
-	padding: 0px;
-	border-radius: 1000px;
-	background-color: var(--secondary-color);
-	border: 5px solid grey; */
 	height: 150px;
 	width: auto;
 	border-radius: 50%;
 	background-color: var(--secondary-color);
-	/* padding: 1rem;  */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -47,9 +39,8 @@
 
 .DataSection {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 	border: 1px solid pink;
-	width: 80%;
-	padding: 20px;
+	width: 100%;
 }
