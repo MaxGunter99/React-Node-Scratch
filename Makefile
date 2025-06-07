@@ -5,11 +5,18 @@ run-frontend:
 run-backend:
 	cd backend && node index.js
 
-# PRETTIER
 
+# PRETTIER
 check-prettier:
 	npx prettier . -c
 
 run-prettier:
 	npx prettier . -w
+
+
+# HOSTING
+run-ngrok:
+	ngrok http http://localhost:3000 
+	# VIEW IT HERE https://dashboard.ngrok.com/endpoints
+
 

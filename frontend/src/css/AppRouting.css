@@ -1,13 +1,13 @@
 .app-routing {
 	text-align: center;
-	background-color: #282c34;
+	background-color: var(--secondary-background-color);
 	display: flex;
 	flex-wrap: wrap;
 	min-height: 100vh;
 	flex-direction: column;
 	align-items: center;
 	font-size: calc(10px + 2vmin);
-	color: white;
+	/* color: white; */
 	text-wrap: wrap;
 }
 
@@ -16,13 +16,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem;
-	background-color: black;
+	width: 100%;
 }
 
 .app-header {
 	width: 100%;
 	background-color: var(--primary-color);
+	text-align: left;
 	/* background-color: var(--secondary-color); */
 	/* background-color: var(--tertiary-color); */
 }
@@ -30,28 +30,38 @@
 .app-title {
 	/* color: var(--primary-color); */
 	color: black;
+	/* text-shadow:
+	-1px -1px #ccc,
+	-2px -2px #bbb,
+	-4px -4px #aaa,
+	-6px -6px #999,
+	-8px -8px #888; */
+	/* letter-spacing: 10px; */
 
 	font-family: var(--primary-font);
 	font-size: var(--primary-font-size);
 	font-weight: var(--primary-font-weight);
 	padding: 0px;
-	margin: 0px;
+	margin: 0px 0px 0px 30px;
+	/* text-decoration: underline; */
+	/* text-decoration-color: var(--secondary-color); */
 }
 
 .nav-bar {
 	display: flex;
 	width: 100%;
-	background-color: whitesmoke;
-	justify-content: center;
-	padding-bottom: 10px;
+	background-color: var(--primary-background-color);
+	justify-content: flex-end;
+	font-size: 1rem;
 }
 
 .nav-item {
 	color: rgb(0, 0, 0);
 	text-decoration: none;
-	border-bottom: 5px solid whitesmoke;
 	padding: 10px;
 	transition: 0.2s;
+	border-top: 5px solid var(--primary-background-color);
+	border-bottom: 5px solid var(--primary-background--color);
 }
 
 .nav-item:hover {
@@ -60,5 +70,7 @@
 }
 
 .nav-item.active {
-	border-bottom: 5px solid var(--primary-color);
+	border-top: 5px solid var(--primary-color);
+	border-bottom: 5px solid var(--secondary-background-color);
+	background-color: var(--secondary-background-color);
 }
