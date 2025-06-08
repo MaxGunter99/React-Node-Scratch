@@ -10,13 +10,13 @@ import PageNotFound from "./components/pageNotFound.js";
 import Weather from "./components/weather.js";
 import config from "./config.js";
 // import Logo from "./images/FavIconTransparent.PNG"
-import Logo from "./images/FavIcon.png"
-import LambdaStamp from "./images/LambdaStamp.png"
+import Logo from "./images/FavIcon.png";
+import LambdaStamp from "./images/LambdaStamp.png";
+import { Github, Linkedin, BriefcaseBusiness } from "lucide-react";
 
 export default function AppRouting() {
 	return (
 		<div className="app-routing">
-
 			<header className="app-header">
 				<h1 className="app-title">{config["APP_NAME"]}</h1>
 				<nav className="nav-bar">
@@ -45,24 +45,64 @@ export default function AppRouting() {
 			</div>
 
 			<footer className="app-footer">
-				<div>
-					<p><strong>Michael (Max) Gunter</strong></p>
-					<p><strong>Bloom Institute of Technology</strong></p>
-					<p><strong>{config["APP_NAME"]} est. 2025</strong></p>
-				</div>
+				<div className="footer-content-container">
+					<div className="footer-section left">
+						<p>
+							<strong>Michael (Max) Gunter</strong>
+						</p>
+						<p
+							onClick={() => {
+								window.open("https://www.bloomtech.com/");
+							}}
+						>
+							<strong>Bloom Institute of Technology (Lambda)</strong>
+						</p>
+						<p>
+							<strong>{config["APP_NAME"]} est. 2025</strong>
+						</p>
+					</div>
 
-				<img className="footer-logo" src={LambdaStamp} />
-				{/* <img className="footer-logo" src={Logo} /> */}
+					<div className="footer-section">
+						<img className="footer-logo" src={LambdaStamp} />
+					</div>
 
-				<div>
-					<a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
-					<br/>
-					<a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a>
-					<br/>
-					<a href="https://yourportfolio.com" target="_blank" rel="noreferrer">Portfolio</a>
+					<div className="footer-section right">
+						<div
+							className="icon-pair"
+							onClick={() => {
+								window.open("https://github.com/MaxGunter99");
+							}}
+						>
+							<Github size={24} />
+							<p>GitHub</p>
+						</div>
+
+						<div
+							className="icon-pair"
+							onClick={() => {
+								window.open(
+									"https://www.linkedin.com/in/michael-gunter-5383a0181/"
+								);
+							}}
+						>
+							<Linkedin size={24} />
+							<p>LinkedIn</p>
+						</div>
+
+						<div
+							className="icon-pair"
+							onClick={() => {
+								window.open(
+									"https://www.linkedin.com/in/michael-gunter-5383a0181/"
+								);
+							}}
+						>
+							<BriefcaseBusiness size={24} />
+							<p>Portfolio</p>
+						</div>
+					</div>
 				</div>
 			</footer>
-
 		</div>
 	);
 }

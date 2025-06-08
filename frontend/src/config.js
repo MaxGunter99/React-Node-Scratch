@@ -11,6 +11,8 @@ const config = {
 	primaryFont: '"Notable", sans-serif',
 	primaryFontSize: "5rem",
 	primaryFontWeight: 400,
+
+	lambdaRed: "#e83944",
 };
 
 document.documentElement.style.setProperty("--primary-color", config.primaryColor);
@@ -28,5 +30,7 @@ document.documentElement.style.setProperty(
 document.documentElement.style.setProperty("--primary-font", config.primaryFont);
 document.documentElement.style.setProperty("--primary-font-size", config.primaryFontSize);
 document.documentElement.style.setProperty("--primary-font-weight", config.primaryFontWeight);
+
+document.documentElement.style.setProperty("--lambda-red", config.lambdaRed);
 
 export default config;

@@ -4,6 +4,7 @@ import "../css/home.css";
 // DEPENDENCIES
 import config from "../config";
 import { Link } from "react-router-dom";
+import { Link as LinkIcon } from "lucide-react";
 
 export default function Home() {
 	return (
@@ -12,7 +13,6 @@ export default function Home() {
 				<h1>Welcome to {config.APP_NAME}</h1>
 
 				<div className="Description">
-
 					<h3>What's the purpose?</h3>
 					<p>(AI Generated)</p>
 
@@ -29,7 +29,6 @@ export default function Home() {
 						it, break things, fix them, and maybe — just maybe — come out the other side
 						with code that doesn't just work, but *feels* like it belongs in the world.
 					</p>
-
 				</div>
 			</div>
 
@@ -45,12 +44,19 @@ export default function Home() {
 				<h3 className="ToolTitle">The Weather</h3>
 				<div className="ToolDetailsContainer">
 					<p>Status: in progress</p>
-					<Link to="/weather">Here</Link>
+					<Link to="/weather">
+						<LinkIcon size={24} />
+					</Link>
 				</div>
 				<ul>
 					<li>The Weather — live, geolocation-based weather data with caching</li>
-					<li>Utilizes a free weather API: <a href="https://www.weatherapi.com">https://www.weatherapi.com</a></li>
-					<li>Caches weather data every hour rather than requesting it on every refresh</li>
+					<li>
+						Utilizes a free weather API:{" "}
+						<a href="https://www.weatherapi.com">https://www.weatherapi.com</a>
+					</li>
+					<li>
+						Caches weather data every hour rather than requesting it on every refresh
+					</li>
 				</ul>
 			</div>
 			<br />
@@ -64,7 +70,9 @@ export default function Home() {
 				<h3 className="ToolTitle">Vent</h3>
 				<div className="ToolDetailsContainer">
 					<p>Status: in progress</p>
-					<Link to="/vent">Here</Link>
+					<Link to="/vent">
+						<LinkIcon size={24} />
+					</Link>
 				</div>
 				<ul>
 					<li>Vent into the Void</li>
@@ -78,7 +86,9 @@ export default function Home() {
 				<h3 className="ToolTitle">Book Club or Watch List</h3>
 				<div className="ToolDetailsContainer">
 					<p>Status: in progress</p>
-					<Link to="/watchList">Here</Link>
+					<Link to="/watchList">
+						<LinkIcon size={24} />
+					</Link>
 				</div>
 				<ul>
 					<li>
