@@ -30,6 +30,17 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.status-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+.status-container p {
+	margin-right: 10px;
 }
 
 .ToolTitle {

@@ -12,7 +12,8 @@ import config from "./config.js";
 // import Logo from "./images/FavIconTransparent.PNG"
 import Logo from "./images/FavIcon.png";
 import LambdaStamp from "./images/LambdaStamp.png";
-import { Github, Linkedin, BriefcaseBusiness } from "lucide-react";
+// import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
+import { GitHub, Linkedin, Briefcase } from "react-feather";
 
 export default function AppRouting() {
 	return (
@@ -73,7 +74,7 @@ export default function AppRouting() {
 								window.open("https://github.com/MaxGunter99");
 							}}
 						>
-							<Github size={24} />
+							<GitHub />
 							<p>GitHub</p>
 						</div>
 
@@ -85,7 +86,7 @@ export default function AppRouting() {
 								);
 							}}
 						>
-							<Linkedin size={24} />
+							<Linkedin />
 							<p>LinkedIn</p>
 						</div>
 
@@ -97,7 +98,7 @@ export default function AppRouting() {
 								);
 							}}
 						>
-							<BriefcaseBusiness size={24} />
+							<Briefcase />
 							<p>Portfolio</p>
 						</div>
 					</div>

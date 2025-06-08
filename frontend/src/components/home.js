@@ -4,7 +4,12 @@ import "../css/home.css";
 // DEPENDENCIES
 import config from "../config";
 import { Link } from "react-router-dom";
-import { Link as LinkIcon } from "lucide-react";
+import {
+	XCircle as StatusIncomplete,
+	Circle as StatusInProgress,
+	CheckCircle as StatusComplete,
+	Link2 as LinkToIcon,
+} from "react-feather";
 
 export default function Home() {
 	return (
@@ -43,9 +48,12 @@ export default function Home() {
 			<div className="ToolContainer">
 				<h3 className="ToolTitle">The Weather</h3>
 				<div className="ToolDetailsContainer">
-					<p>Status: in progress</p>
+					<div className="status-container">
+						<p>Status:</p>
+						<StatusInProgress />
+					</div>
 					<Link to="/weather">
-						<LinkIcon size={24} />
+						<LinkToIcon />
 					</Link>
 				</div>
 				<ul>
@@ -69,9 +77,13 @@ export default function Home() {
 			<div className="ToolContainer">
 				<h3 className="ToolTitle">Vent</h3>
 				<div className="ToolDetailsContainer">
-					<p>Status: in progress</p>
+					<div className="status-container">
+						<p>Status:</p>
+						<StatusIncomplete />
+					</div>
+
 					<Link to="/vent">
-						<LinkIcon size={24} />
+						<LinkToIcon />
 					</Link>
 				</div>
 				<ul>
@@ -85,9 +97,12 @@ export default function Home() {
 			<div className="ToolContainer">
 				<h3 className="ToolTitle">Book Club or Watch List</h3>
 				<div className="ToolDetailsContainer">
-					<p>Status: in progress</p>
+					<div className="status-container">
+						<p>Status:</p>
+						<StatusIncomplete />
+					</div>
 					<Link to="/watchList">
-						<LinkIcon size={24} />
+						<LinkToIcon />
 					</Link>
 				</div>
 				<ul>
