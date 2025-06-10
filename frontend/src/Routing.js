@@ -32,7 +32,7 @@ export default function AppRouting() {
 						className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
 						to="/unauthenticatedMessages"
 					>
-						Weather
+						Messages
 					</NavLink>
 				</nav>
 			</header>

@@ -82,7 +82,7 @@
 	display: flex;
 	justify-content: space-between;
 	/* align-items: center; */
-	padding: 1rem;
+	/* padding: 1rem; */
 	gap: 1rem; /* optional, for space between sections */
 	flex-wrap: wrap; /* optional if you want them to wrap on smaller screens */
 	align-items: stretch;
@@ -95,8 +95,9 @@
 	/* border: 2px solid red; */
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	/* color: white; */
+	padding: 0.3rem;
 }
 
 .footer-section.left {
@@ -115,9 +116,9 @@
 	height: auto;
 	width: 150px;
 	border-radius: 50%;
-	border: 3px solid white;
+	/* border: 3px solid white; */
 	padding: 0.3rem;
-	background-color: var(--lambda-red);
+	/* background-color: var(--lambda-red); */
 	margin: 0 auto;
 }
 

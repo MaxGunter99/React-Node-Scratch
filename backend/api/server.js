@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 // Routers
-const unauthenticatedList = require("../routes/unauthenticatedListRouter");
+const unauthenticatedList = require("../routes/unauthenticatedMessagesRouter");
 
 // Apply Middleware
 server.use(express.json());
@@ -15,7 +15,7 @@ server.use(helmet());
 server.use(cors());
 
 // Router extensions
-server.use("/unauthenticatedList", unauthenticatedList);
+server.use("/unauthenticatedMessages", unauthenticatedList);
 
 // Sanity Check
 server.get("/", (req, res) => {

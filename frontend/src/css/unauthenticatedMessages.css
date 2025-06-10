@@ -1,0 +1,52 @@
+
+.unauthenticated-messages-container {
+    border: 3px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.add-message-form {
+    /* border: 3px solid red; */
+    display: flex;
+}
+
+.error-container {
+    min-height: 50px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container p {
+    background-color: rgb(255, 94, 94);
+    padding: 10px;
+}
+
+.messages-container {
+    border: 3px solid red;
+    padding: 1em;
+}
+
+.message {
+    /* border: 3px solid red; */
+    /* color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: aqua;
+    margin: 10px;
+}
+
+.message-main-content {
+    display: flex;
+}
+
+.message-main-content textarea {
+    display: flex;
+    width: fit-content;
+    /* background-color: black; */
+}
+

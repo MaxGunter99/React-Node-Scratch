@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const UnauthenticatedList = require("./unauthenticatedListModel");
+const UnauthenticatedMessages = require("./unauthenticatedMessagesModel");
 
 // GET ALL MESSAGES
 router.get("/", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedList.findAll("unauthenticatedList").orderBy("created_at", "desc");
+		const entries = await UnauthenticatedMessages.findAll("unauthenticatedMessages").orderBy("created_at", "desc");
 		res.json(entries);
 	} catch (err) {
 		res.status(500).json({
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
-// POST MESSAGES
+// POST MESSAGE
 router.post("/", async (req, res) => {
 	try {
 		const { message } = req.body;
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 			});
 		}
 
-		const newMessage = await UnauthenticatedList.addMessage({
+		const newMessage = await UnauthenticatedMessages.addMessage({
 			text: message,
 		});
 		res.status(201).json(newMessage);
@@ -37,10 +37,10 @@ router.post("/", async (req, res) => {
 	}
 });
 
-// GET ONE MESSAGES
+// GET ONE MESSAGE
 router.get("/:id", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedList.findById(req.params.id)
+		const entries = await UnauthenticatedMessages.findById(req.params.id)
 			.then((message) => {
 				return res.json(message);
 			})
@@ -59,12 +59,12 @@ router.get("/:id", async (req, res) => {
 	}
 });
 
-// UPDATE ONE MESSAGES
+// UPDATE ONE MESSAGE
 router.put("/:id", async (req, res) => {
 	try {
 		const id = req.params.id;
 		const message = req.body;
-		const entries = await UnauthenticatedList.update(id, message)
+		const entries = await UnauthenticatedMessages.update(id, message)
 			.then((message) => {
 				return res.json(message);
 			})
@@ -83,10 +83,10 @@ router.put("/:id", async (req, res) => {
 	}
 });
 
-// DELETE ONE MESSAGES
+// DELETE ONE MESSAGE
 router.delete("/:id", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedList.remove(req.params.id)
+		const entries = await UnauthenticatedMessages.remove(req.params.id)
 			.then((message) => {
 				return res.json(message);
 			})
