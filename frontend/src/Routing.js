@@ -14,6 +14,7 @@ import Logo from "./images/FavIcon.png";
 import LambdaStamp from "./images/LambdaStamp.png";
 // import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
 import { GitHub, Linkedin, Briefcase } from "react-feather";
+import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
 
 export default function AppRouting() {
 	return (
@@ -21,15 +22,15 @@ export default function AppRouting() {
 			<header className="app-header">
 				<h1 className="app-title">{config["APP_NAME"]}</h1>
 				<nav className="nav-bar">
-					<NavLink
-						className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
-						to="/"
-					>
+					<NavLink className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")} to="/">
 						Home
+					</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")} to="/weather">
+						Weather
 					</NavLink>
 					<NavLink
 						className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
-						to="/weather"
+						to="/unauthenticatedMessages"
 					>
 						Weather
 					</NavLink>
@@ -41,6 +42,7 @@ export default function AppRouting() {
 					<Route path="/" element={<Home />} />
 					<Route path="home" element={<Home />} />
 					<Route path="weather" element={<Weather />} />
+					<Route path="unauthenticatedMessages" element={<UnauthenticatedMessages />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>
@@ -81,9 +83,7 @@ export default function AppRouting() {
 						<div
 							className="icon-pair"
 							onClick={() => {
-								window.open(
-									"https://www.linkedin.com/in/michael-gunter-5383a0181/"
-								);
+								window.open("https://www.linkedin.com/in/michael-gunter-5383a0181/");
 							}}
 						>
 							<Linkedin />
@@ -93,9 +93,7 @@ export default function AppRouting() {
 						<div
 							className="icon-pair"
 							onClick={() => {
-								window.open(
-									"https://www.linkedin.com/in/michael-gunter-5383a0181/"
-								);
+								window.open("https://www.linkedin.com/in/michael-gunter-5383a0181/");
 							}}
 						>
 							<Briefcase />

@@ -99,14 +99,10 @@ export default function Weather() {
 						<div className="header-subsection">
 							<h5>
 								<strong>
-									{weatherData?.current?.condition?.text}{" "}
-									{weatherData?.current?.temp_f}ºF
+									{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
 								</strong>
 							</h5>
-							<img
-								className="CurrentConditionImage"
-								src={weatherData?.current?.condition?.icon}
-							/>
+							<img className="CurrentConditionImage" src={weatherData?.current?.condition?.icon} />
 						</div>
 
 						<div className="data-subsection">
@@ -122,8 +118,7 @@ export default function Weather() {
 							<p>
 								Wind:{" "}
 								<strong>
-									{weatherData?.current?.wind_mph}mph{" "}
-									{weatherData?.current?.wind_dir}
+									{weatherData?.current?.wind_mph}mph {weatherData?.current?.wind_dir}
 								</strong>
 							</p>
 							<p>
@@ -137,17 +132,14 @@ export default function Weather() {
 						<p>
 							Last Updated:{" "}
 							<strong>
-								{new Date(weatherData?.current?.last_updated).toLocaleString(
-									"en-US",
-									{
-										weekday: "short",
-										year: "numeric",
-										month: "short",
-										day: "numeric",
-										hour: "numeric",
-										minute: "2-digit",
-									}
-								)}
+								{new Date(weatherData?.current?.last_updated).toLocaleString("en-US", {
+									weekday: "short",
+									year: "numeric",
+									month: "short",
+									day: "numeric",
+									hour: "numeric",
+									minute: "2-digit",
+								})}
 							</strong>
 						</p>
 					</div>
