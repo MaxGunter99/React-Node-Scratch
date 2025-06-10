@@ -75,21 +75,21 @@ export default function Home() {
 			<br />
 
 			<div className="ToolContainer">
-				<h3 className="ToolTitle">Vent</h3>
+				<h3 className="ToolTitle">Unauthenticated List</h3>
 				<div className="ToolDetailsContainer">
 					<div className="status-container">
 						<p>Status:</p>
 						<StatusIncomplete />
 					</div>
 
-					<Link to="/vent">
+					<Link to="/unauthenticatedList">
 						<LinkToIcon />
 					</Link>
 				</div>
 				<ul>
-					<li>Vent into the Void</li>
 					<li>Stores raw text in a database!</li>
-					<li>For your eyes only</li>
+					<li>Perform simple CRUD operations on a list connected to the database.</li>
+					<li>No authentication required</li>
 				</ul>
 			</div>
 			<br />

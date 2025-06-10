@@ -1,0 +1,19 @@
+
+.NotFoundContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    height: fit-content;
+    align-self: center;
+    background-color: var(--primary-background-color);
+    border-radius: 10px;
+}
+
+.PageNotFoundMessage {
+    font-family: var(--primary-font);
+	/* font-size: var(--primary-font-size); */
+	font-weight: var(--primary-font-weight);
+}
