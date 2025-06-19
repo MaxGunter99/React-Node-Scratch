@@ -86,16 +86,13 @@ router.put("/:id", async (req, res) => {
 // DELETE ONE MESSAGE
 router.delete("/:id", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedMessages.remove(req.params.id)
-			.then((message) => {
-				return res.json(message);
-			})
-			.catch((error) => {
-				return res.status(200).json({
-					message: "Server Error deleting Message",
-				});
+		const message = await UnauthenticatedMessages.remove(req.params.id);
+		if (!message) {
+			res.status(404).json({
+				message: "Server Error deleting Message",
 			});
-		res.json(entries);
+		}
+		return res.json(message);
 	} catch (err) {
 		res.status(500).json({
 			message: "Failed to delete entry",
