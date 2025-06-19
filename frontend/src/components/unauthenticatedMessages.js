@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Edit2, Trash2 } from "react-feather";
+import { Edit2, Trash2, Save } from "react-feather";
 
 import "../css/unauthenticatedMessages.css";
 
@@ -9,10 +9,12 @@ export default function UnauthenticatedMessages() {
 	const [message, setMessage] = useState("");
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [editing, setEditing] = useState(false);
+	const [editingMessageId, setEditingMessageId] = useState(null);
+	const [editingMessageContent, setEditingMessageContent] = useState(null);
 	const [loading, setLoading] = useState(true);
 
 	// FORM SUBMIT
-	const submitForm = async (event) => {
+	const submitNewMessageForm = async (event) => {
 		event.preventDefault();
 		setErrorMessage(null);
 
@@ -23,6 +25,9 @@ export default function UnauthenticatedMessages() {
 					if (response.status === 201) {
 						setMessage("");
 						getMessages();
+						setEditing(false);
+						setEditingMessageId(null);
+						setEditingMessageContent(null);
 					}
 				})
 				.catch((err) => {
@@ -35,10 +40,10 @@ export default function UnauthenticatedMessages() {
 	};
 
 	// FORM CHANGE
-	const handleChange = (e) => {
+	const handleNewMessageChange = (e) => {
 		setMessage(e.target.value);
 	};
-
+	
 	// GET MESSAGES
 	async function getMessages() {
 		try {
@@ -52,14 +57,45 @@ export default function UnauthenticatedMessages() {
 			setErrorMessage(error.message);
 		}
 	}
+	
+	const editMessage = (message) => {
+		console.log(message.id);
+		setEditing(true);
+		setEditingMessageId(message.id);
+		setEditingMessageContent(message.text);
+	};
+	
+	const handleEditMessageChange = (e) => {
+		setEditingMessageContent(e.target.value);
+	};
 
-	const editMessage = (id) => {
-		console.log(id);
+	const saveMessage = async (event) => {
+		event.preventDefault();
+		setErrorMessage(null);
+
+		try {
+			await axios
+				.put(`http://localhost:3001/unauthenticatedMessages/${editingMessageId}`, { text: editingMessageContent })
+				.then((response) => {
+					if (response.status === 200) {
+						setEditing(false);
+						setEditingMessageId(null);
+						setEditingMessageContent(null);
+						getMessages();
+					}
+				})
+				.catch((err) => {
+					setErrorMessage(err.message);
+					console.log("Error posting data: ", err);
+				});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const deleteMessage = async (id) => {
 		try {
-			await axios.delete(`http://localhost:3001/unauthenticatedMessages/${id}`).then((response) => {
+			await axios.delete( `http://localhost:3001/unauthenticatedMessages/${id}` ).then((response) => {
 				if (response.status == 200) {
 					getMessages();
 				}
@@ -68,6 +104,8 @@ export default function UnauthenticatedMessages() {
 			setErrorMessage(error.message);
 		}
 	};
+
+	
 
 	useEffect(() => {
 		try {
@@ -86,10 +124,10 @@ export default function UnauthenticatedMessages() {
 
 			<div className="error-container">{errorMessage ? <p>{errorMessage}</p> : null}</div>
 
-			<form className="add-message-form" onSubmit={submitForm}>
+			<form className="add-message-form" onSubmit={submitNewMessageForm}>
 				<label>
-					New Message: <textarea id="text" value={message} onChange={handleChange} />
-					{/* New Message: <input id="text" value={message} onChange={handleChange} /> */}
+					New Message: <textarea id="text" value={message} onChange={handleNewMessageChange} />
+					{/* New Message: <input id="text" value={message} onChange={handleNewMessageChange} /> */}
 				</label>
 				<button type="submit">Add</button>
 			</form>
@@ -102,6 +140,29 @@ export default function UnauthenticatedMessages() {
 				) : messages.length > 0 ? (
 					<div>
 						{messages.map((message) => {
+
+							if (editing && editingMessageId === message.id) {
+								return  (
+									<div key={message.id} className="message">
+										<form className="message-main-content" onChange={handleEditMessageChange}>
+											<p>
+												<strong>{message.id}</strong>
+											</p>
+											<textarea value={editingMessageContent}/>
+											{/* <p>{message.text}</p> */}
+											<Save
+											className="message-action save"
+											type="submit"
+											onClick={saveMessage}
+										/>
+										</form>
+										<p className="message-created-at">
+											<strong>Created: {message.created_at}</strong>
+										</p>
+									</div>
+								)
+							}
+
 							return (
 								<div key={message.id} className="message">
 									<div className="message-main-content">
@@ -112,7 +173,7 @@ export default function UnauthenticatedMessages() {
 										{/* <p>{message.text}</p> */}
 										<Edit2
 											className="message-action edit"
-											onClick={() => editMessage(message.id)}
+											onClick={() => editMessage(message)}
 										/>
 										<Trash2
 											className="message-action delete"

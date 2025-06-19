@@ -65,16 +65,12 @@ router.put("/:id", async (req, res) => {
 		const id = req.params.id;
 		const message = req.body;
 		const entries = await UnauthenticatedMessages.update(id, message)
-			.then((message) => {
-				return res.json(message);
-			})
-			.catch((err) => {
-				return res.status(200).json({
-					message: "Server Error getting Message",
-					error: err,
-				});
+		if (!entries) {
+			res.status(404).json({
+				message: "Server Error deleting Message",
 			});
-		res.json(entries);
+		}
+		return res.json(entries);
 	} catch (err) {
 		res.status(500).json({
 			message: "Failed to update entry",
