@@ -6,9 +6,16 @@
 	/* padding: 1.5em; */
 }
 
+.app-name-reference {
+	font-family: var(--primary-font);
+	/* font-size: var(--primary-font-size); */
+	font-weight: var(--primary-font-weight);
+}
+
 .section-header {
 	background-color: var(--secondary-background-color);
 	padding: var(--standard-padding);
+	border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius);
 }
 
 .content-container {
@@ -56,13 +63,14 @@
 	margin: 0px;
 	font-family: var(--primary-font);
 	font-weight: var(--primary-font-weight);
+	border-bottom: 3px solid var(--tertiary-color);
 }
 
 .link-icon {
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
 	/* background-color: black; */
-	color: black;
+	color: blue;
 	margin: var(--standard-padding);
 	/* padding: var(--standard-padding); */
 	border-radius: var(--container-border-radius);

@@ -15,22 +15,17 @@ export default function Home() {
 	return (
 		<div className="app-container">
 			<div className="section-header">
-				<h1>Welcome to {config.APP_NAME}</h1>
+				<h1>Welcome to <strong className="app-name-reference">{config.APP_NAME}</strong></h1>
 			</div>
 
 			<div className="content-container">
 				<div className="description">
 					<h3>What's the purpose?</h3>
 					<p>
-						This project is a hands-on sandbox built to sharpen your React reflexes — frontend and backend
-						alike. It's not just about writing code — it's about re-forging your dev skills with clean
-						components, real-world features, and a little bit of ✨ style ✨. Consider it your own little
-						dojo, a place where muscle memory is earned through repetition, experimentation, and the
-						occasional faceplant followed by a triumphant comeback. Each click, each state update, each
-						well-placed `console.log` is a pixel in the bigger picture of growth — a developer in motion,
-						chasing mastery one bracket at a time. The structure's here, but the soul? That's on you. So get
-						weird with it, break things, fix them, and maybe — just maybe — come out the other side with
-						code that doesn't just work, but *feels* like it belongs in the world.
+						<strong className="app-name-reference">{config.APP_NAME}</strong> is a hands-on React sandbox built to level up your frontend and backend skills.
+						It's not just about writing code — it's about experimenting, building real features, and
+						learning through trial and error. Think of it as your dev dojo: break things, fix them, and
+						grow. Every click, every bug, every console.log is part of the process.
 					</p>
 				</div>
 
@@ -46,7 +41,9 @@ export default function Home() {
 					<h3 className="tool-title">The Weather</h3>
 					<div className="tool-details-container">
 						<div className="status-container">
-							<p>Status:</p>
+							<p>
+								<strong>Status:</strong>
+							</p>
 							{/* <StatusIncomplete className="status-icon incomplete"/> */}
 							{/* <StatusInProgress className="status-icon in-progress"/> */}
 							<StatusComplete className="status-icon complete" />
@@ -56,12 +53,47 @@ export default function Home() {
 						</Link>
 					</div>
 					<ul>
-						<li>The Weather — live, geolocation-based weather data with caching</li>
 						<li>
-							Utilizes a free weather API:{" "}
+							The Weather — live, <strong>geolocation-based weather data</strong> with caching
+						</li>
+						<li>
+							Utilizes a free <strong>weather API</strong>:{" "}
 							<a href="https://www.weatherapi.com">https://www.weatherapi.com</a>
 						</li>
-						<li>Caches weather data every hour rather than requesting it on every refresh</li>
+						<li>
+							<strong>Caches</strong> weather data every hour rather than requesting it on every refresh
+						</li>
+					</ul>
+				</div>
+				<br />
+
+				<div className="tool-container">
+					<h3 className="tool-title">Unauthenticated List</h3>
+					<div className="tool-details-container">
+						<div className="status-container">
+							<p>
+								<strong>Status:</strong>
+							</p>
+							{/* <StatusIncomplete className="status-icon incomplete"/> */}
+							{/* <StatusInProgress className="status-icon in-progress" /> */}
+							<StatusComplete className="status-icon complete" />
+						</div>
+
+						<Link to="/unauthenticatedMessages">
+							<LinkToIcon className="link-icon" />
+						</Link>
+					</div>
+					<ul>
+						<li>
+							Connected to a <strong>database</strong> using custom <strong>Node.js</strong> API routes
+						</li>
+						<li>
+							Dynamic frontend built with <strong>React Hooks</strong> and{" "}
+							<strong>functional components</strong>
+						</li>
+						<li>
+							Add, update, and delete entries in real-time — <strong>no authentication required</strong>
+						</li>
 					</ul>
 				</div>
 				<br />
@@ -72,23 +104,37 @@ export default function Home() {
 				<br />
 
 				<div className="tool-container">
-					<h3 className="tool-title">Unauthenticated List</h3>
+					<h3 className="tool-title">Redux Video Game Tracker</h3>
 					<div className="tool-details-container">
 						<div className="status-container">
-							<p>Status:</p>
-							{/* <StatusIncomplete className="status-icon incomplete"/> */}
+							<p>
+								<strong>Status:</strong>
+							</p>
+							{/* <StatusIncomplete className="status-icon incomplete" /> */}
 							<StatusInProgress className="status-icon in-progress" />
 							{/* <StatusComplete className="status-icon complete"/> */}
 						</div>
-
-						<Link to="/unauthenticatedMessages">
+						<Link to="/games">
 							<LinkToIcon className="link-icon" />
 						</Link>
 					</div>
 					<ul>
-						<li>Stores raw text in a database!</li>
-						<li>Perform simple CRUD operations on a list connected to the database.</li>
-						<li>No authentication required</li>
+						<li>
+							Connected to a <strong>database</strong> using custom <strong>Node.js</strong> API routes
+						</li>
+						<li>
+							Utilizes <strong>redux</strong> for state management and <strong>Class Components</strong>
+						</li>
+						<li>
+							Add, change, or delete a <strong>list of video games</strong> played
+						</li>
+						<li>
+							Each listed video game should have these properties:{" "}
+							<strong>Name, Platform, Rating, Comments, Completed</strong>
+						</li>
+						<li>
+							<strong>No user authentication</strong> required for this yet
+						</li>
 					</ul>
 				</div>
 				<br />
@@ -97,7 +143,9 @@ export default function Home() {
 					<h3 className="tool-title">Book Club or Watch List</h3>
 					<div className="tool-details-container">
 						<div className="status-container">
-							<p>Status:</p>
+							<p>
+								<strong>Status:</strong>
+							</p>
 							<StatusIncomplete className="status-icon incomplete" />
 							{/* <StatusInProgress className="status-icon in-progress"/> */}
 							{/* <StatusComplete className="status-icon complete"/> */}
@@ -107,9 +155,27 @@ export default function Home() {
 						</Link>
 					</div>
 					<ul>
-						<li>Mini-app that showcases user authentication in a book club or watch list setting</li>
-						<li>Users can login and list things they have enjoyed, rating each thing</li>
-						<li>Users can not read or update data if they are not logged in</li>
+						<li>
+							Mini-app that showcases <strong>user authentication</strong> and <strong>Redux</strong> in a
+							book club or watch list setting
+						</li>
+						<li>
+							Utilizes <strong>Class Components</strong>
+						</li>
+						<li>
+							Each user can <strong>login</strong> and add to a list of things they have enjoyed
+						</li>
+						<li>
+							Users can <strong>view other users lists</strong> that are public
+						</li>
+						<li>
+							Users can <strong>create private lists</strong> that other users can not see, unless invited
+							to
+						</li>
+						<li>
+							Users can <strong>NOT</strong> create, read, update, or delete their data or others data if
+							they are <strong>not logged in</strong>
+						</li>
 					</ul>
 				</div>
 				<br />

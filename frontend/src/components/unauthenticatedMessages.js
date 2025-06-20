@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Edit2, Trash2, Save } from "react-feather";
+import { Edit2, Trash2, Save, Plus } from "react-feather";
 
 import "../css/unauthenticatedMessages.css";
 
@@ -132,7 +132,9 @@ export default function UnauthenticatedMessages() {
 					{/* New Message: <input id="text" value={message} onChange={handleNewMessageChange} /> */}
 				</label>
 				<textarea id="text" value={message} onChange={handleNewMessageChange} />
-				<button type="submit">Add</button>
+				<button type="submit">
+					<Plus />
+				</button>
 			</form>
 
 			<div className="messages-container">

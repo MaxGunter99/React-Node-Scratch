@@ -92,54 +92,56 @@ export default function Weather() {
 			{loading === true ? (
 				<p>Loading Weather Data!</p>
 			) : (
-				<div className="data-section">
-					<div className="main-content">
-						<div className="header-subsection">
-							<h5>
-								<strong>
-									{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
-								</strong>
-							</h5>
-							<img className="current-condition-image" src={weatherData?.current?.condition?.icon} />
+				<div className="data-card-container">
+					<div className="data-card">
+						<div className="main-content">
+							<div className="header-subsection">
+								<h5>
+									<strong>
+										{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
+									</strong>
+								</h5>
+								<img className="current-condition-image" src={weatherData?.current?.condition?.icon} />
+							</div>
+
+							<div className="data-subsection">
+								<p>
+									Feels Like: <strong>{weatherData?.current?.feelslike_f}ºF</strong>
+								</p>
+								<p>
+									Lat: <strong>{weatherData?.location?.lat}</strong>
+								</p>
+								<p>
+									Lon: <strong>{weatherData?.location?.lon}</strong>
+								</p>
+								<p>
+									Wind:{" "}
+									<strong>
+										{weatherData?.current?.wind_mph}mph {weatherData?.current?.wind_dir}
+									</strong>
+								</p>
+								<p>
+									Timezone: <strong>{weatherData?.location?.tz_id}</strong>
+								</p>
+							</div>
 						</div>
 
-						<div className="data-subsection">
+						<div className="data-end">
+							<br />
 							<p>
-								Feels Like: <strong>{weatherData?.current?.feelslike_f}ºF</strong>
-							</p>
-							<p>
-								Lat: <strong>{weatherData?.location?.lat}</strong>
-							</p>
-							<p>
-								Lon: <strong>{weatherData?.location?.lon}</strong>
-							</p>
-							<p>
-								Wind:{" "}
+								Last Updated:{" "}
 								<strong>
-									{weatherData?.current?.wind_mph}mph {weatherData?.current?.wind_dir}
+									{new Date(weatherData?.current?.last_updated).toLocaleString("en-US", {
+										weekday: "short",
+										year: "numeric",
+										month: "short",
+										day: "numeric",
+										hour: "numeric",
+										minute: "2-digit",
+									})}
 								</strong>
 							</p>
-							<p>
-								Timezone: <strong>{weatherData?.location?.tz_id}</strong>
-							</p>
 						</div>
-					</div>
-
-					<div className="data-end">
-						<br />
-						<p>
-							Last Updated:{" "}
-							<strong>
-								{new Date(weatherData?.current?.last_updated).toLocaleString("en-US", {
-									weekday: "short",
-									year: "numeric",
-									month: "short",
-									day: "numeric",
-									hour: "numeric",
-									minute: "2-digit",
-								})}
-							</strong>
-						</p>
 					</div>
 				</div>
 			)}

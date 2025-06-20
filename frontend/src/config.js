@@ -1,6 +1,8 @@
 const config = {
 	APP_NAME: "Multi-Tool",
 
+	// -----------------
+
 	// primaryColor: "#74c8ae",
 	// secondaryColor: "#F4A127",
 	// tertiaryColor: "#FFDAC1",
@@ -15,18 +17,18 @@ const config = {
 	// secondaryBackgroundColor: "#DCE4E2",
 
 	// COOL GREY
-	// primaryColor: "#8AA29E",
-	// secondaryColor: "#A5C4C0",
-	// tertiaryColor: "#CFE1DC",
-	// primaryBackgroundColor: "#F6F9F8",
-	// secondaryBackgroundColor: "#E6ECEA",
+	primaryColor: "#8AA29E",
+	secondaryColor: "#A5C4C0",
+	tertiaryColor: "#CFE1DC",
+	primaryBackgroundColor: "#F6F9F8",
+	secondaryBackgroundColor: "#E6ECEA",
 
 	// ERIS MORN THEME
-	primaryColor: "#4E5D52",
-	secondaryColor: "#d9cd45",
-	tertiaryColor: "#A9B9A3",
-	primaryBackgroundColor: "#CFDDD2",
-	secondaryBackgroundColor: "#DCE4E2",
+	// primaryColor: "#4E5D52",
+	// secondaryColor: "#d9cd45",
+	// tertiaryColor: "#A9B9A3",
+	// primaryBackgroundColor: "#CFDDD2",
+	// secondaryBackgroundColor: "#DCE4E2",
 
 	// primaryColor: "#FF7597",           // Bubblegum punch – playful but bold
 	// secondaryColor: "#7161EF",         // Electric periwinkle – ADHD sparkle magic
@@ -34,18 +36,47 @@ const config = {
 	// primaryBackgroundColor: "#FDF0F3", // Light rose milk – cozy, soft, dreamy
 	// secondaryBackgroundColor: "#DDE4F4", // Soft periwinkle sky – a little melancholy, a lot thoughtful
 
+	// -----------------
+
+	// RETRO THICK
 	primaryFont: '"Notable", sans-serif',
 	primaryFontSize: "5rem",
 	primaryFontWeight: 400,
 
+	// PIXELATED NES STYLE
+	// primaryFont: '"Tiny5", sans-serif',
+	// primaryFontSize: "5rem",
+	// primaryFontWeight: "normal",
+
+	// PIXELATED NES STYLE 2
+	// primaryFont: '"Silkscreen", sans-serif',
+	// primaryFontSize: "5rem",
+	// primaryFontWeight: "normal",
+
+	// PIXELATED NES STYLE 3
+	// primaryFont: '"Press Start 2P", system-ui',
+	// primaryFontSize: "5rem",
+	// primaryFontWeight: 400,
+
+	// THIN
+	// primaryFont: '"Plus Jakarta Sans", sans-serif',
+	// primaryFontSize: "5rem",
+	// primaryFontWeight: 400,
+
+	// RENAISSANCE
+	// primaryFont: '"UnifrakturMaguntia", cursive',
+	// primaryFontSize: "5rem",
+	// primaryFontWeight: 400,
+
+	// -----------------
+
 	transitionTime: "0.1s",
-	containerBorderRadius: "3px",
-	standardPadding: "0.5em",
+	containerBorderRadius: "7px",
+	standardPadding: "0.75em",
 	standardIconSize: "20px",
 
 	lambdaRed: "#e83944",
 
-	// UNAUTHENTICATED MESSAGES
 	textAreaMinHeight: "50px",
 	textAreaMinWidth: "250px",
 };

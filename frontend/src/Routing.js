@@ -1,5 +1,5 @@
 // CSS
-import "./css/AppRouting.css";
+import "./css/routing.css";
 
 // DEPENDENCIES
 import { Routes, Route, NavLink } from "react-router-dom";
@@ -51,9 +51,7 @@ export default function AppRouting() {
 				<div className="footer-content-container">
 					<div className="footer-section left">
 						<div className="icon-pair">
-							<p>
-								<strong>Michael (Max) Gunter</strong>
-							</p>
+							<p>Michael (Max) Gunter</p>
 							<MaxIcon className="footer-icon" />
 						</div>
 						<div className="icon-pair link">
@@ -62,14 +60,12 @@ export default function AppRouting() {
 									window.open("https://www.bloomtech.com/");
 								}}
 							>
-								<strong>Bloom Institute of Technology (Lambda)</strong>
+								BloomTech (Lambda)
 							</p>
 							<SchoolIcon className="footer-icon" />
 						</div>
 						<div className="icon-pair">
-							<p>
-								<strong>{config["APP_NAME"]} est. 2025</strong>
-							</p>
+							<p>{config["APP_NAME"]} est. 2025</p>
 							<ToolIcon className="footer-icon" />
 						</div>
 					</div>

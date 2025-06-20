@@ -16,6 +16,7 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	padding: var(--standard-padding);
+	border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius);
 }
 
 .app-description .section-title {
@@ -68,6 +69,7 @@
 .add-message-form textarea {
 	min-width: var(--textarea-min-width);
 	min-height: var(--textarea-min-height);
+	height: 100%;
 	border: none;
 }
 
@@ -82,7 +84,7 @@
 
 .add-message-form button:hover {
 	cursor: pointer;
-	background-color: rgb(57, 218, 57);
+	background-color: var(--secondary-color);
 }
 
 /* MESSAGE LIST */
@@ -149,9 +151,8 @@
 
 .message-action:hover {
 	cursor: pointer;
-	background-color: var(--secondary-background-color);
 }
 
-.message-created-at {
+/* .message-created-at {
 	color: white;
-}
+} */
