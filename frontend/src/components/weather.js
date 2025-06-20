@@ -41,7 +41,7 @@ export default function Weather() {
 			const maxHoursOld = 1;
 			const maxMinutesOld = 60 * maxHoursOld;
 
-			console.log("Recieved:", parsedTimeReceived);
+			console.log("Received:", parsedTimeReceived);
 			console.log("Now:", now);
 			console.log(diffMinutes);
 			console.log(maxMinutesOld);
@@ -78,23 +78,21 @@ export default function Weather() {
 		}
 	}, [weatherData, coordinates]);
 
-	if (loading === true) {
-		return <p>Loading Weather Data!</p>;
-	} else {
-		return (
-			<div className="WeatherContainer">
-				<div className="HeadingSection">
-					<div>
-						<h2 className="SectionTitle">The Weather</h2>
-						<p>
-							in {weatherData?.location?.name}, {weatherData?.location?.region}
-						</p>
-					</div>
-				</div>
+	return (
+		<div className="weather-container">
+			<div className="heading-section">
+				<h2 className="section-title">The Weather</h2>
+				<p>
+					in {weatherData?.location?.name}, {weatherData?.location?.region}
+				</p>
+			</div>
 
-				<br />
+			<br />
 
-				<div className="DataSection">
+			{loading === true ? (
+				<p>Loading Weather Data!</p>
+			) : (
+				<div className="data-section">
 					<div className="main-content">
 						<div className="header-subsection">
 							<h5>
@@ -102,7 +100,7 @@ export default function Weather() {
 									{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
 								</strong>
 							</h5>
-							<img className="CurrentConditionImage" src={weatherData?.current?.condition?.icon} />
+							<img className="current-condition-image" src={weatherData?.current?.condition?.icon} />
 						</div>
 
 						<div className="data-subsection">
@@ -144,9 +142,9 @@ export default function Weather() {
 						</p>
 					</div>
 				</div>
-			</div>
-		);
-	}
+			)}
+		</div>
+	);
 }
 
 async function getWeatherData(coordinates) {

@@ -1,32 +1,41 @@
-.AppContainer {
+.app-container {
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center; */
 	text-align: left;
-	padding: 1.5em;
+	/* padding: 1.5em; */
 }
 
-.Description {
-	text-indent: 1.5em;
+.section-header {
 	background-color: var(--secondary-background-color);
-	margin: 10px;
-	padding: 10px;
-	/* width: 100%; */
-	border-radius: 5px;
-}
-.Description p {
-	padding: 10px;
+	padding: var(--standard-padding);
 }
 
-.ToolContainer {
+.content-container {
+	padding: var(--standard-padding);
+}
+
+.description {
+	text-indent: 1.5em;
+	background-color: var(--primary-background-color);
+	margin: 10px;
+	padding: var(--standard-padding);
+	/* width: 100%; */
+	border-radius: var(--container-border-radius);
+}
+.description p {
+	padding: var(--standard-padding);
+}
+
+.tool-container {
 	width: 90%;
 	margin: 0 auto;
-	background-color: var(--secondary-background-color);
-	padding: 10px;
-	border-radius: 5px;
+	background-color: var(--primary-background-color);
+	padding: var(--standard-padding);
+	border-radius: var(--container-border-radius);
 }
 
-.ToolDetailsContainer {
+.tool-details-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -37,14 +46,46 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 10px;
+	padding: var(--standard-padding);
 }
 .status-container p {
 	margin-right: 10px;
 }
 
-.ToolTitle {
+.tool-title {
 	margin: 0px;
 	font-family: var(--primary-font);
 	font-weight: var(--primary-font-weight);
+}
+
+.link-icon {
+	height: var(--standard-icon-size);
+	width: var(--standard-icon-size);
+	/* background-color: black; */
+	color: black;
+	margin: var(--standard-padding);
+	/* padding: var(--standard-padding); */
+	border-radius: var(--container-border-radius);
+	transition: var(--transition-time);
+}
+
+.link-icon:hover {
+	cursor: pointer;
+}
+
+.status-icon {
+	height: var(--standard-icon-size);
+	width: var(--standard-icon-size);
+}
+
+.status-icon.complete {
+	color: green;
+}
+
+.status-icon.in-progress {
+	color: orange;
+}
+
+.status-icon.incomplete {
+	color: red;
 }

@@ -64,7 +64,7 @@ router.put("/:id", async (req, res) => {
 	try {
 		const id = req.params.id;
 		const message = req.body;
-		const entries = await UnauthenticatedMessages.update(id, message)
+		const entries = await UnauthenticatedMessages.update(id, message);
 		if (!entries) {
 			res.status(404).json({
 				message: "Server Error deleting Message",

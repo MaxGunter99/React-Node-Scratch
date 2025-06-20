@@ -1,38 +1,37 @@
-.WeatherContainer {
+.weather-container {
 	display: flex;
 	flex-direction: column;
 	flex-grow: inherit;
 	align-items: center;
 	/* max-width: 50%; */
 	margin: 0 auto;
-	/* justify-content: space-evenly; */
 	justify-content: center;
-	/* border: 3px solid red; */
-	/* background-color: var(--primary-background-color); */
+	height: 100%;
+}
+
+.heading-section {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: flex;
+	width: 100%;
+	background-color: var(--secondary-background-color);
 	padding: 1rem;
 }
 
-.HeadingSection {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	text-align: flex;
-	width: 100%;
-}
-
-.SectionTitle {
+.section-title {
 	margin: 0px;
 	font-family: var(--primary-font);
 	font-weight: var(--primary-font-weight);
 }
 
-.HeadingSection p {
+.heading-section p {
 	text-align: right;
-	padding: 0px;
+	padding: var(--standard-padding);
 	margin: 0px;
 }
 
-.CurrentConditionImage {
+.current-condition-image {
 	height: 75px;
 	width: auto;
 	border-radius: 50%;
@@ -43,15 +42,15 @@
 	border: 3px solid white;
 }
 
-.DataSection {
+.data-section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-	border-radius: 10px;
-	padding: 0.5rem;
+	border-radius: var(--container-border-radius);
+	padding: var(--standard-padding);
 	height: 100%;
-	background-color: var(--secondary-background-color);
+	background-color: var(--primary-background-color);
 	/* border: 3px solid white; */
 	/* width: 100%; */
 }
@@ -66,7 +65,7 @@
 	align-items: flex-end;
 	width: 100%;
 	justify-content: space-between;
-	padding: 0.5rem;
+	padding: var(--standard-padding);
 	margin-bottom: 0.5rem;
 	border-bottom: 3px solid rgba(73, 73, 73, 0.218);
 }

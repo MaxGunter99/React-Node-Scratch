@@ -43,7 +43,7 @@ export default function UnauthenticatedMessages() {
 	const handleNewMessageChange = (e) => {
 		setMessage(e.target.value);
 	};
-	
+
 	// GET MESSAGES
 	async function getMessages() {
 		try {
@@ -57,14 +57,14 @@ export default function UnauthenticatedMessages() {
 			setErrorMessage(error.message);
 		}
 	}
-	
+
 	const editMessage = (message) => {
 		console.log(message.id);
 		setEditing(true);
 		setEditingMessageId(message.id);
 		setEditingMessageContent(message.text);
 	};
-	
+
 	const handleEditMessageChange = (e) => {
 		setEditingMessageContent(e.target.value);
 	};
@@ -75,7 +75,9 @@ export default function UnauthenticatedMessages() {
 
 		try {
 			await axios
-				.put(`http://localhost:3001/unauthenticatedMessages/${editingMessageId}`, { text: editingMessageContent })
+				.put(`http://localhost:3001/unauthenticatedMessages/${editingMessageId}`, {
+					text: editingMessageContent,
+				})
 				.then((response) => {
 					if (response.status === 200) {
 						setEditing(false);
@@ -95,7 +97,7 @@ export default function UnauthenticatedMessages() {
 
 	const deleteMessage = async (id) => {
 		try {
-			await axios.delete( `http://localhost:3001/unauthenticatedMessages/${id}` ).then((response) => {
+			await axios.delete(`http://localhost:3001/unauthenticatedMessages/${id}`).then((response) => {
 				if (response.status == 200) {
 					getMessages();
 				}
@@ -104,8 +106,6 @@ export default function UnauthenticatedMessages() {
 			setErrorMessage(error.message);
 		}
 	};
-
-	
 
 	useEffect(() => {
 		try {
@@ -119,16 +119,19 @@ export default function UnauthenticatedMessages() {
 
 	return (
 		<div className="unauthenticated-messages-container">
-			<h2>Unauthenticated Messages</h2>
-			<p>Add a message to the database! no need to be authenticated here</p>
+			<div className="app-description">
+				<h2 className="section-title">Unauthenticated Messages</h2>
+				<p>Add a message to the database! no need to be authenticated here</p>
+			</div>
 
 			<div className="error-container">{errorMessage ? <p>{errorMessage}</p> : null}</div>
 
 			<form className="add-message-form" onSubmit={submitNewMessageForm}>
-				<label>
-					New Message: <textarea id="text" value={message} onChange={handleNewMessageChange} />
+				<label htmlFor="text">
+					New Message:
 					{/* New Message: <input id="text" value={message} onChange={handleNewMessageChange} /> */}
 				</label>
+				<textarea id="text" value={message} onChange={handleNewMessageChange} />
 				<button type="submit">Add</button>
 			</form>
 
@@ -138,29 +141,24 @@ export default function UnauthenticatedMessages() {
 						<p>Loading</p>
 					</div>
 				) : messages.length > 0 ? (
-					<div>
+					<div className="messages-inner-container">
 						{messages.map((message) => {
-
 							if (editing && editingMessageId === message.id) {
-								return  (
+								return (
 									<div key={message.id} className="message">
 										<form className="message-main-content" onChange={handleEditMessageChange}>
 											<p>
 												<strong>{message.id}</strong>
 											</p>
-											<textarea value={editingMessageContent}/>
+											<textarea value={editingMessageContent} />
 											{/* <p>{message.text}</p> */}
-											<Save
-											className="message-action save"
-											type="submit"
-											onClick={saveMessage}
-										/>
+											<Save className="message-action save" type="submit" onClick={saveMessage} />
 										</form>
 										<p className="message-created-at">
 											<strong>Created: {message.created_at}</strong>
 										</p>
 									</div>
-								)
+								);
 							}
 
 							return (
@@ -169,12 +167,9 @@ export default function UnauthenticatedMessages() {
 										<p>
 											<strong>{message.id}</strong>
 										</p>
-										<textarea value={message.text} readOnly />
+										<textarea value={message.text} readOnly disabled />
 										{/* <p>{message.text}</p> */}
-										<Edit2
-											className="message-action edit"
-											onClick={() => editMessage(message)}
-										/>
+										<Edit2 className="message-action edit" onClick={() => editMessage(message)} />
 										<Trash2
 											className="message-action delete"
 											onClick={() => deleteMessage(message.id)}

@@ -13,7 +13,7 @@ import config from "./config.js";
 import Logo from "./images/FavIcon.png";
 import LambdaStamp from "./images/LambdaStamp.png";
 // import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
-import { GitHub, Linkedin, Briefcase } from "react-feather";
+import { GitHub, Linkedin, Briefcase, User as MaxIcon, Coffee as SchoolIcon, Tool as ToolIcon } from "react-feather";
 import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
 
 export default function AppRouting() {
@@ -50,19 +50,28 @@ export default function AppRouting() {
 			<footer className="app-footer">
 				<div className="footer-content-container">
 					<div className="footer-section left">
-						<p>
-							<strong>Michael (Max) Gunter</strong>
-						</p>
-						<p
-							onClick={() => {
-								window.open("https://www.bloomtech.com/");
-							}}
-						>
-							<strong>Bloom Institute of Technology (Lambda)</strong>
-						</p>
-						<p>
-							<strong>{config["APP_NAME"]} est. 2025</strong>
-						</p>
+						<div className="icon-pair">
+							<p>
+								<strong>Michael (Max) Gunter</strong>
+							</p>
+							<MaxIcon className="footer-icon" />
+						</div>
+						<div className="icon-pair link">
+							<p
+								onClick={() => {
+									window.open("https://www.bloomtech.com/");
+								}}
+							>
+								<strong>Bloom Institute of Technology (Lambda)</strong>
+							</p>
+							<SchoolIcon className="footer-icon" />
+						</div>
+						<div className="icon-pair">
+							<p>
+								<strong>{config["APP_NAME"]} est. 2025</strong>
+							</p>
+							<ToolIcon className="footer-icon" />
+						</div>
 					</div>
 
 					<div className="footer-section">
@@ -71,32 +80,32 @@ export default function AppRouting() {
 
 					<div className="footer-section right">
 						<div
-							className="icon-pair"
+							className="icon-pair link"
 							onClick={() => {
 								window.open("https://github.com/MaxGunter99");
 							}}
 						>
-							<GitHub />
+							<GitHub className="footer-icon" />
 							<p>GitHub</p>
 						</div>
 
 						<div
-							className="icon-pair"
+							className="icon-pair link"
 							onClick={() => {
 								window.open("https://www.linkedin.com/in/michael-gunter-5383a0181/");
 							}}
 						>
-							<Linkedin />
+							<Linkedin className="footer-icon" />
 							<p>LinkedIn</p>
 						</div>
 
 						<div
-							className="icon-pair"
+							className="icon-pair link"
 							onClick={() => {
 								window.open("https://www.linkedin.com/in/michael-gunter-5383a0181/");
 							}}
 						>
-							<Briefcase />
+							<Briefcase className="footer-icon" />
 							<p>Portfolio</p>
 						</div>
 					</div>
