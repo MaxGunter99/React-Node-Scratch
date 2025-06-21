@@ -10,7 +10,7 @@ import PageNotFound from "./components/pageNotFound.js";
 import Weather from "./components/weather.js";
 import config from "./config.js";
 // import Logo from "./images/FavIconTransparent.PNG"
-import Logo from "./images/FavIcon.png";
+// import Logo from "./images/FavIcon.png";
 import LambdaStamp from "./images/LambdaStamp.png";
 // import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
 import { GitHub, Linkedin, Briefcase, User as MaxIcon, Coffee as SchoolIcon, Tool as ToolIcon } from "react-feather";
@@ -71,7 +71,7 @@ export default function AppRouting() {
 					</div>
 
 					<div className="footer-section">
-						<img className="footer-logo" src={LambdaStamp} />
+						<img alt="lambda-school-badge" className="footer-logo" src={LambdaStamp} />
 					</div>
 
 					<div className="footer-section right">

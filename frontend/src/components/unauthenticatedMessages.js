@@ -113,7 +113,7 @@ export default function UnauthenticatedMessages() {
 	const deleteMessage = async (id) => {
 		try {
 			await axios.delete(`http://localhost:3001/unauthenticatedMessages/${id}`).then((response) => {
-				if (response.status == 200) {
+				if (response.status === 200) {
 					getMessages();
 				}
 			});

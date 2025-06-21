@@ -24,7 +24,7 @@ export default function Weather() {
 				setCoordinates([latitude, longitude]);
 			});
 		}
-	}, []);
+	}, [coordinates]);
 
 	useEffect(() => {
 		console.log(coordinates);
@@ -54,12 +54,12 @@ export default function Weather() {
 				console.log("Data in storage is less than 1 hour old");
 			}
 		}
-	}, [weatherData]);
+	}, [coordinates, weatherData]);
 
 	useEffect(() => {
 		var currentWeatherData = null;
 
-		if (weatherData == null && coordinates != null) {
+		if (weatherData === null && coordinates != null) {
 			async function fetchWeather() {
 				currentWeatherData = await getWeatherData(coordinates);
 				if (currentWeatherData !== null) {
@@ -70,7 +70,7 @@ export default function Weather() {
 			}
 			fetchWeather();
 		}
-	}, [coordinates]);
+	}, [coordinates, weatherData]);
 
 	useEffect(() => {
 		if (weatherData && coordinates) {
@@ -101,7 +101,7 @@ export default function Weather() {
 										{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
 									</strong>
 								</h5>
-								<img className="current-condition-image" src={weatherData?.current?.condition?.icon} />
+								<img alt="current-condition-image" className="current-condition-image" src={weatherData?.current?.condition?.icon} />
 							</div>
 
 							<div className="data-subsection">
