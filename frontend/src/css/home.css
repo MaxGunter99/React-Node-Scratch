@@ -69,6 +69,7 @@
 .link-icon {
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
+	stroke-width: var(--standard-icon-stroke-width);
 	/* background-color: black; */
 	color: blue;
 	margin: var(--standard-padding);
@@ -84,6 +85,7 @@
 .status-icon {
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
+	stroke-width: var(--standard-icon-stroke-width);
 }
 
 .status-icon.complete {

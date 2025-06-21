@@ -31,9 +31,8 @@ async function findById(id) {
 }
 
 async function update(id, changes) {
-	await db("unauthenticatedMessages").select("*").where({ id }).update(changes);
-	let selectedMessage = await db("unauthenticatedMessages").select("*").where({ id }).first();
-	return selectedMessage;
+	await db("unauthenticatedMessages").where({ id }).update(changes);
+	return findById(id);
 }
 
 function remove(id) {

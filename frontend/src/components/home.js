@@ -121,7 +121,7 @@ export default function Home() {
 							<StatusInProgress className="status-icon in-progress" />
 							{/* <StatusComplete className="status-icon complete"/> */}
 						</div>
-						<Link to="/games">
+						<Link to="/videoGames">
 							<LinkToIcon className="link-icon" />
 						</Link>
 					</div>
@@ -137,7 +137,10 @@ export default function Home() {
 						</li>
 						<li>
 							Each listed video game should have these properties:{" "}
-							<strong>Name, Platform, Rating, Comments, Completed</strong>
+							<strong>
+								id, uuid, name, platform, rating, genre, cover_image_url, external_url, favorite,
+								comments, completed, replayable, started_at, finished_at
+							</strong>
 						</li>
 						<li>
 							<strong>No user authentication</strong> required for this yet
@@ -145,6 +148,12 @@ export default function Home() {
 						<li>
 							Backend <strong>profanity filters</strong> included to prevent inappropriate language from
 							being submitted to the database.
+						</li>
+						<li>
+							Backend video game list should be <strong>filterable</strong> based on platform, rating, and favorite
+						</li>
+						<li>
+							Backend video game list should be <strong>filterable</strong> based on platform, rating, and favorite
 						</li>
 					</ul>
 				</div>
@@ -171,6 +180,9 @@ export default function Home() {
 							book club or watch list setting
 						</li>
 						<li>
+							Redux should utilize: "react-redux", "redux-thunk", "redux-logger"
+						</li>
+						<li>
 							Utilizes <strong>Class Components</strong>
 						</li>
 						<li>
@@ -186,10 +198,6 @@ export default function Home() {
 						<li>
 							Users can <strong>NOT</strong> create, read, update, or delete their data or others data if
 							they are <strong>not logged in</strong>
-						</li>
-						<li>
-							Backend <strong>profanity filters</strong> included to prevent inappropriate language from
-							being submitted to the database.
 						</li>
 					</ul>
 				</div>

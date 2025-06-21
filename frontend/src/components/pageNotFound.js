@@ -5,8 +5,8 @@ import "../css/pageNotFound.css";
 
 export default function PageNotFound() {
 	return (
-		<div className="NotFoundContainer">
-			<h2 className="PageNotFoundMessage">404 PAGE NOT FOUND</h2>
+		<div className="not-found-container">
+			<h2 className="page-not-found-message">404 PAGE NOT FOUND</h2>
 			<Link to="/">
 				<Home />
 			</Link>

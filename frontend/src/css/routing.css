@@ -168,6 +168,7 @@
 .footer-icon {
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
+	stroke-width: var(--standard-icon-stroke-width);
 	padding: 0px;
 	margin: 0px;
 }

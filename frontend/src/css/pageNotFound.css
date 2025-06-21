@@ -1,4 +1,4 @@
-.NotFoundContainer {
+.not-found-container {
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -11,7 +11,7 @@
 	border-radius: var(--container-border-radius);
 }
 
-.PageNotFoundMessage {
+.page-not-found-message {
 	font-family: var(--primary-font);
 	/* font-size: var(--primary-font-size); */
 	font-weight: var(--primary-font-weight);

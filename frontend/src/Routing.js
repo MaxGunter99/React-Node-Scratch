@@ -15,6 +15,7 @@ import LambdaStamp from "./images/LambdaStamp.png";
 // import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
 import { GitHub, Linkedin, Briefcase, User as MaxIcon, Coffee as SchoolIcon, Tool as ToolIcon } from "react-feather";
 import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
+import VideoGames from "./components/videoGames.js";
 
 export default function AppRouting() {
 	return (
@@ -34,6 +35,12 @@ export default function AppRouting() {
 					>
 						Messages
 					</NavLink>
+					<NavLink
+						className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+						to="/videoGames"
+					>
+						Video Games
+					</NavLink>
 				</nav>
 			</header>
 
@@ -43,6 +50,7 @@ export default function AppRouting() {
 					<Route path="home" element={<Home />} />
 					<Route path="weather" element={<Weather />} />
 					<Route path="unauthenticatedMessages" element={<UnauthenticatedMessages />} />
+					<Route path="videoGames" element={<VideoGames />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>

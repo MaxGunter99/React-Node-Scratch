@@ -150,6 +150,7 @@
 .message-action {
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
+	stroke-width: var(--standard-icon-stroke-width);
 	/* padding: var(--standard-padding); */
 	margin: 5px;
 	transition: var(--transition-time);

@@ -74,6 +74,7 @@ const config = {
 	containerBorderRadius: "7px",
 	standardPadding: "0.75em",
 	standardIconSize: "20px",
+	standardIconStrokeWidth: "2px",
 
 	lambdaRed: "#e83944",
 	errorRed: "rgb(224, 102, 102)",
@@ -97,6 +98,7 @@ document.documentElement.style.setProperty("--transition-time", config.transitio
 document.documentElement.style.setProperty("--container-border-radius", config.containerBorderRadius);
 document.documentElement.style.setProperty("--standard-padding", config.standardPadding);
 document.documentElement.style.setProperty("--standard-icon-size", config.standardIconSize);
+document.documentElement.style.setProperty("--standard-icon-stroke-width", config.standardIconStrokeWidth);
 
 document.documentElement.style.setProperty("--lambda-red", config.lambdaRed);
 document.documentElement.style.setProperty("--error-red", config.errorRed);

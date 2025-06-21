@@ -101,7 +101,11 @@ export default function Weather() {
 										{weatherData?.current?.condition?.text} {weatherData?.current?.temp_f}ºF
 									</strong>
 								</h5>
-								<img alt="current-condition-image" className="current-condition-image" src={weatherData?.current?.condition?.icon} />
+								<img
+									alt="current-condition-image"
+									className="current-condition-image"
+									src={weatherData?.current?.condition?.icon}
+								/>
 							</div>
 
 							<div className="data-subsection">
