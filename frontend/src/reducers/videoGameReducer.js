@@ -16,7 +16,7 @@ export const videoGameReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetchingVideoGames: true,
-                videoGames: [],
+				videoGames: [],
 				error: null,
 			};
 
@@ -24,7 +24,7 @@ export const videoGameReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetchingVideoGames: false,
-                videoGames: action.payload,
+				videoGames: action.payload,
 				error: null,
 			};
 
@@ -32,10 +32,10 @@ export const videoGameReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetchingVideoGames: false,
-                videoGames: [],
+				videoGames: [],
 				error: action.payload,
 			};
-		
+
 		default:
 			return state;
 	}

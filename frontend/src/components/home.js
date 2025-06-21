@@ -150,10 +150,12 @@ export default function Home() {
 							being submitted to the database.
 						</li>
 						<li>
-							Backend video game list should be <strong>filterable</strong> based on platform, rating, and favorite
+							Backend video game list should be <strong>filterable</strong> based on platform, rating, and
+							favorite
 						</li>
 						<li>
-							Backend video game list should be <strong>filterable</strong> based on platform, rating, and favorite
+							Backend video game list should be <strong>filterable</strong> based on platform, rating, and
+							favorite
 						</li>
 					</ul>
 				</div>
@@ -179,9 +181,7 @@ export default function Home() {
 							Mini-app that showcases <strong>user authentication</strong> and <strong>Redux</strong> in a
 							book club or watch list setting
 						</li>
-						<li>
-							Redux should utilize: "redux", "react-redux", "redux-thunk", "redux-logger"
-						</li>
+						<li>Redux should utilize: "redux", "react-redux", "redux-thunk", "redux-logger"</li>
 						<li>
 							Utilizes <strong>Class Components</strong>
 						</li>
