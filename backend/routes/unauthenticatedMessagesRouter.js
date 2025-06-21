@@ -6,10 +6,10 @@ const profanityMiddleware = require("../middleware/profanityMiddleware");
 // GET ALL MESSAGES
 router.get("/", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedMessages.findAll("unauthenticatedMessages").orderBy("created_at", "desc");
-		res.json(entries);
+		const entries = await UnauthenticatedMessages.findAll("unauthenticatedMessages").orderBy("id", "desc");
+		return res.status(200).json(entries);
 	} catch (err) {
-		res.status(500).json({
+		return res.status(500).json({
 			error: "Failed to fetch entries",
 		});
 	}
@@ -29,9 +29,9 @@ router.post("/", profanityMiddleware, async (req, res) => {
 		const newMessage = await UnauthenticatedMessages.addMessage({
 			text: message,
 		});
-		res.status(201).json(newMessage);
+		return res.status(201).json(newMessage);
 	} catch (err) {
-		res.status(500).json({
+		return res.status(500).json({
 			message: "Failed to post entries",
 			error: err.message,
 		});
@@ -41,19 +41,12 @@ router.post("/", profanityMiddleware, async (req, res) => {
 // GET ONE MESSAGE
 router.get("/:id", async (req, res) => {
 	try {
-		const entries = await UnauthenticatedMessages.findById(req.params.id)
-			.then((message) => {
-				return res.json(message);
-			})
-			.catch((err) => {
-				return res.status(200).json({
-					message: "Server Error getting Message",
-					error: err,
-				});
-			});
-		res.json(entries);
+		const entries = await UnauthenticatedMessages.findById(req.params.id).then((message) => {
+			return res.status(200).json(message);
+		});
+		return res.status(200).json(entries);
 	} catch (err) {
-		res.status(500).json({
+		return res.status(500).json({
 			message: "Failed to fetch entries",
 			error: err.message,
 		});
@@ -78,13 +71,13 @@ router.put("/:id", profanityMiddleware, async (req, res) => {
 		const id = req.params.id;
 		const entries = await UnauthenticatedMessages.update(id, message);
 		if (!entries) {
-			res.status(404).json({
+			return res.status(404).json({
 				message: "Server Error deleting Message",
 			});
 		}
-		return res.json(entries);
+		return res.status(200).json(entries);
 	} catch (err) {
-		res.status(500).json({
+		return res.status(500).json({
 			message: "Failed to update entry",
 			error: err.message,
 		});
@@ -96,13 +89,13 @@ router.delete("/:id", async (req, res) => {
 	try {
 		const message = await UnauthenticatedMessages.remove(req.params.id);
 		if (!message) {
-			res.status(404).json({
+			return res.status(404).json({
 				message: "Server Error deleting Message",
 			});
 		}
-		return res.json(message);
+		return res.status(200).json(message);
 	} catch (err) {
-		res.status(500).json({
+		return res.status(500).json({
 			message: "Failed to delete entry",
 			error: err.message,
 		});
