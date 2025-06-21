@@ -7,7 +7,7 @@ export default function PageNotFound() {
 	return (
 		<div className="NotFoundContainer">
 			<h2 className="PageNotFoundMessage">404 PAGE NOT FOUND</h2>
-			<Link to="/home">
+			<Link to="/">
 				<Home />
 			</Link>
 		</div>

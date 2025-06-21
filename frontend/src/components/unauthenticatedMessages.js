@@ -19,26 +19,21 @@ export default function UnauthenticatedMessages() {
 		setErrorMessage(null);
 
 		try {
-
-			await axios
-				.post("http://localhost:3001/unauthenticatedMessages", { text: message })
-				.then((response) => {
-					if (response.status === 201) {
-						setMessage("");
-						getMessages();
-						setEditing(false);
-						setEditingMessageId(null);
-						setEditingMessageContent(null);
-					}
-				})
-
+			await axios.post("http://localhost:3001/unauthenticatedMessages", { text: message }).then((response) => {
+				if (response.status === 201) {
+					setMessage("");
+					getMessages();
+					setEditing(false);
+					setEditingMessageId(null);
+					setEditingMessageContent(null);
+				}
+			});
 		} catch (error) {
-
-			const errorMessage = error?.response?.data?.message
-			if ( errorMessage ) {
-				setErrorMessage( errorMessage );
+			const errorMessage = error?.response?.data?.message;
+			if (errorMessage) {
+				setErrorMessage(errorMessage);
 			} else {
-				setErrorMessage(error.message );
+				setErrorMessage(error.message);
 			}
 			console.log(error);
 		}
@@ -51,22 +46,19 @@ export default function UnauthenticatedMessages() {
 
 	// GET MESSAGES
 	async function getMessages() {
-
 		try {
-
 			await axios.get("http://localhost:3001/unauthenticatedMessages").then((response) => {
 				let messageData = response.data;
 				if (messageData && messageData.length > 0) {
 					setMessages(messageData);
 				}
 			});
-
-		} catch ( error ) {
-			const errorMessage = error?.response?.data?.message
-			if ( errorMessage ) {
-				setErrorMessage( errorMessage );
+		} catch (error) {
+			const errorMessage = error?.response?.data?.message;
+			if (errorMessage) {
+				setErrorMessage(errorMessage);
 			} else {
-				setErrorMessage( error.message );
+				setErrorMessage(error.message);
 			}
 			console.log(error);
 		}
@@ -99,13 +91,13 @@ export default function UnauthenticatedMessages() {
 						setEditingMessageContent(null);
 						getMessages();
 					}
-				})
-		}  catch ( error ) {
-			const errorMessage = error?.response?.data?.message
-			if ( errorMessage ) {
-				setErrorMessage( errorMessage );
+				});
+		} catch (error) {
+			const errorMessage = error?.response?.data?.message;
+			if (errorMessage) {
+				setErrorMessage(errorMessage);
 			} else {
-				setErrorMessage( error.message );
+				setErrorMessage(error.message);
 			}
 			console.log(error);
 		}
@@ -115,8 +107,8 @@ export default function UnauthenticatedMessages() {
 		setEditing(false);
 		setEditingMessageId(null);
 		setEditingMessageContent(null);
-		setErrorMessage(null)
-	}
+		setErrorMessage(null);
+	};
 
 	const deleteMessage = async (id) => {
 		try {
@@ -147,7 +139,13 @@ export default function UnauthenticatedMessages() {
 				<p>Add a message to the database! no need to be authenticated here</p>
 			</div>
 
-			<div className="error-container">{errorMessage ? <p><strong>{errorMessage}</strong></p> : null}</div>
+			<div className="error-container">
+				{errorMessage ? (
+					<p>
+						<strong>{errorMessage}</strong>
+					</p>
+				) : null}
+			</div>
 
 			<form className="add-message-form" onSubmit={submitNewMessageForm}>
 				<label htmlFor="text">
@@ -168,7 +166,7 @@ export default function UnauthenticatedMessages() {
 				) : messages.length > 0 ? (
 					<div className="messages-inner-container">
 						{messages.map((message) => {
-							if ( editing && editingMessageId === message.id && errorMessage === null) {
+							if (editing && editingMessageId === message.id && errorMessage === null) {
 								return (
 									<div key={message.id} className="message">
 										<form className="message-main-content" onChange={handleEditMessageChange}>
@@ -184,7 +182,7 @@ export default function UnauthenticatedMessages() {
 										</p>
 									</div>
 								);
-							} else if ( editing && editingMessageId === message.id && errorMessage !== null) {
+							} else if (editing && editingMessageId === message.id && errorMessage !== null) {
 								return (
 									<div key={message.id} className="message error">
 										<form className="message-main-content" onChange={handleEditMessageChange}>

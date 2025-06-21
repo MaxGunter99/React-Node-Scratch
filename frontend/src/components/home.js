@@ -15,17 +15,20 @@ export default function Home() {
 	return (
 		<div className="app-container">
 			<div className="section-header">
-				<h1>Welcome to <strong className="app-name-reference">{config.APP_NAME}</strong></h1>
+				<h1>
+					Welcome to <strong className="app-name-reference">{config.APP_NAME}</strong>
+				</h1>
 			</div>
 
 			<div className="content-container">
 				<div className="description">
 					<h3>What's the purpose?</h3>
 					<p>
-						<strong className="app-name-reference">{config.APP_NAME}</strong> is a hands-on React sandbox built to level up your frontend and backend skills.
-						It's not just about writing code — it's about experimenting, building real features, and
-						learning through trial and error. Think of it as your dev dojo: break things, fix them, and
-						grow. Every click, every bug, every console.log is part of the process.
+						<strong className="app-name-reference">{config.APP_NAME}</strong> is a hands-on React sandbox
+						built to level up your frontend and backend skills. It's not just about writing code — it's
+						about experimenting, building real features, and learning through trial and error. Think of it
+						as your dev dojo: break things, fix them, and grow. Every click, every bug, every console.log is
+						part of the process.
 					</p>
 				</div>
 
@@ -68,7 +71,7 @@ export default function Home() {
 				<br />
 
 				<div className="tool-container">
-					<h3 className="tool-title">Unauthenticated List</h3>
+					<h3 className="tool-title">Unauthenticated Messages</h3>
 					<div className="tool-details-container">
 						<div className="status-container">
 							<p>
@@ -93,6 +96,10 @@ export default function Home() {
 						</li>
 						<li>
 							Add, update, and delete entries in real-time — <strong>no authentication required</strong>
+						</li>
+						<li>
+							Backend <strong>profanity filters</strong> included to prevent inappropriate language from
+							being submitted to the database.
 						</li>
 					</ul>
 				</div>
@@ -135,6 +142,10 @@ export default function Home() {
 						<li>
 							<strong>No user authentication</strong> required for this yet
 						</li>
+						<li>
+							Backend <strong>profanity filters</strong> included to prevent inappropriate language from
+							being submitted to the database.
+						</li>
 					</ul>
 				</div>
 				<br />
@@ -175,6 +186,10 @@ export default function Home() {
 						<li>
 							Users can <strong>NOT</strong> create, read, update, or delete their data or others data if
 							they are <strong>not logged in</strong>
+						</li>
+						<li>
+							Backend <strong>profanity filters</strong> included to prevent inappropriate language from
+							being submitted to the database.
 						</li>
 					</ul>
 				</div>
