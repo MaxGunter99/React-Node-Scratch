@@ -180,7 +180,7 @@ export default function Home() {
 							book club or watch list setting
 						</li>
 						<li>
-							Redux should utilize: "react-redux", "redux-thunk", "redux-logger"
+							Redux should utilize: "redux", "react-redux", "redux-thunk", "redux-logger"
 						</li>
 						<li>
 							Utilizes <strong>Class Components</strong>
