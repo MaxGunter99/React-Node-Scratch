@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Edit2, Trash2, Save, Plus } from "react-feather";
+import { Edit2, Trash2, Save, Plus, X } from "react-feather";
 
 import "../css/unauthenticatedMessages.css";
 
@@ -19,8 +19,9 @@ export default function UnauthenticatedMessages() {
 		setErrorMessage(null);
 
 		try {
+
 			await axios
-				.post("http://localhost:3001/unauthenticatedMessages", { message: message })
+				.post("http://localhost:3001/unauthenticatedMessages", { text: message })
 				.then((response) => {
 					if (response.status === 201) {
 						setMessage("");
@@ -30,11 +31,15 @@ export default function UnauthenticatedMessages() {
 						setEditingMessageContent(null);
 					}
 				})
-				.catch((err) => {
-					setErrorMessage(err.message);
-					console.log("Error posting data: ", err);
-				});
+
 		} catch (error) {
+
+			const errorMessage = error?.response?.data?.message
+			if ( errorMessage ) {
+				setErrorMessage( errorMessage );
+			} else {
+				setErrorMessage(error.message );
+			}
 			console.log(error);
 		}
 	};
@@ -46,15 +51,24 @@ export default function UnauthenticatedMessages() {
 
 	// GET MESSAGES
 	async function getMessages() {
+
 		try {
+
 			await axios.get("http://localhost:3001/unauthenticatedMessages").then((response) => {
 				let messageData = response.data;
 				if (messageData && messageData.length > 0) {
 					setMessages(messageData);
 				}
 			});
-		} catch (error) {
-			setErrorMessage(error.message);
+
+		} catch ( error ) {
+			const errorMessage = error?.response?.data?.message
+			if ( errorMessage ) {
+				setErrorMessage( errorMessage );
+			} else {
+				setErrorMessage( error.message );
+			}
+			console.log(error);
 		}
 	}
 
@@ -86,14 +100,23 @@ export default function UnauthenticatedMessages() {
 						getMessages();
 					}
 				})
-				.catch((err) => {
-					setErrorMessage(err.message);
-					console.log("Error posting data: ", err);
-				});
-		} catch (error) {
+		}  catch ( error ) {
+			const errorMessage = error?.response?.data?.message
+			if ( errorMessage ) {
+				setErrorMessage( errorMessage );
+			} else {
+				setErrorMessage( error.message );
+			}
 			console.log(error);
 		}
 	};
+
+	const clearEdits = () => {
+		setEditing(false);
+		setEditingMessageId(null);
+		setEditingMessageContent(null);
+		setErrorMessage(null)
+	}
 
 	const deleteMessage = async (id) => {
 		try {
@@ -124,7 +147,7 @@ export default function UnauthenticatedMessages() {
 				<p>Add a message to the database! no need to be authenticated here</p>
 			</div>
 
-			<div className="error-container">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+			<div className="error-container">{errorMessage ? <p><strong>{errorMessage}</strong></p> : null}</div>
 
 			<form className="add-message-form" onSubmit={submitNewMessageForm}>
 				<label htmlFor="text">
@@ -145,7 +168,7 @@ export default function UnauthenticatedMessages() {
 				) : messages.length > 0 ? (
 					<div className="messages-inner-container">
 						{messages.map((message) => {
-							if (editing && editingMessageId === message.id) {
+							if ( editing && editingMessageId === message.id && errorMessage === null) {
 								return (
 									<div key={message.id} className="message">
 										<form className="message-main-content" onChange={handleEditMessageChange}>
@@ -153,8 +176,24 @@ export default function UnauthenticatedMessages() {
 												<strong>{message.id}</strong>
 											</p>
 											<textarea value={editingMessageContent} />
-											{/* <p>{message.text}</p> */}
 											<Save className="message-action save" type="submit" onClick={saveMessage} />
+											<X className="message-action cancel" type="button" onClick={clearEdits} />
+										</form>
+										<p className="message-created-at">
+											<strong>Created: {message.created_at}</strong>
+										</p>
+									</div>
+								);
+							} else if ( editing && editingMessageId === message.id && errorMessage !== null) {
+								return (
+									<div key={message.id} className="message error">
+										<form className="message-main-content" onChange={handleEditMessageChange}>
+											<p>
+												<strong>{message.id}</strong>
+											</p>
+											<textarea value={editingMessageContent} />
+											<Save className="message-action save" type="submit" onClick={saveMessage} />
+											<X className="message-action cancel" type="button" onClick={clearEdits} />
 										</form>
 										<p className="message-created-at">
 											<strong>Created: {message.created_at}</strong>
@@ -170,7 +209,6 @@ export default function UnauthenticatedMessages() {
 											<strong>{message.id}</strong>
 										</p>
 										<textarea value={message.text} readOnly disabled />
-										{/* <p>{message.text}</p> */}
 										<Edit2 className="message-action edit" onClick={() => editMessage(message)} />
 										<Trash2
 											className="message-action delete"

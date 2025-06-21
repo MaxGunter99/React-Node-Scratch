@@ -1,6 +1,31 @@
 const express = require("express");
 const router = express.Router();
 const UnauthenticatedMessages = require("./unauthenticatedMessagesModel");
+const profaneWords = require("profane-words");
+
+const profanityCheck = ( content ) => {
+	let containsProfanity = false;
+
+	try {
+		// Sanitize, split into words
+		const words = content.toLowerCase().split(/\s+/);
+
+		for (const word of words) {
+			const cleaned = word.replace(/[^a-z]/gi, "");
+
+			if (profaneWords.includes(cleaned)) {
+				containsProfanity = true;
+				break;
+			}
+		}
+
+	} catch (error) {
+		console.log("Profanity check error:", error);
+	}
+
+	return containsProfanity;
+};
+
 
 // GET ALL MESSAGES
 router.get("/", async (req, res) => {
@@ -16,8 +41,20 @@ router.get("/", async (req, res) => {
 
 // POST MESSAGE
 router.post("/", async (req, res) => {
+
+	
 	try {
-		const { message } = req.body;
+
+		const message = req.body;
+	
+		var contentContainsProfanity = profanityCheck( message.text );
+		if ( contentContainsProfanity === true ) {
+			const errorMessage = "Content contains profanity, unable to submit content"
+			return res.status(500).json({
+				message: errorMessage,
+				error: errorMessage,
+			});
+		}
 
 		if (!message) {
 			return res.status(400).json({
@@ -61,9 +98,23 @@ router.get("/:id", async (req, res) => {
 
 // UPDATE ONE MESSAGE
 router.put("/:id", async (req, res) => {
+
+	
 	try {
-		const id = req.params.id;
+
 		const message = req.body;
+	
+		var contentContainsProfanity = profanityCheck( message.text );
+	
+		if ( contentContainsProfanity === true ) {
+			const errorMessage = "Content contains profanity, unable to submit content"
+			return res.status(500).json({
+				message: errorMessage,
+				error: errorMessage,
+			});
+		}
+
+		const id = req.params.id;
 		const entries = await UnauthenticatedMessages.update(id, message);
 		if (!entries) {
 			res.status(404).json({

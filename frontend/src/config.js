@@ -76,6 +76,8 @@ const config = {
 	standardIconSize: "20px",
 
 	lambdaRed: "#e83944",
+	errorRed: "rgb(224, 102, 102)",
+	transparent: "rgba(255, 0, 0, 0)",
 
 	textAreaMinHeight: "50px",
 	textAreaMinWidth: "250px",
@@ -97,6 +99,8 @@ document.documentElement.style.setProperty("--standard-padding", config.standard
 document.documentElement.style.setProperty("--standard-icon-size", config.standardIconSize);
 
 document.documentElement.style.setProperty("--lambda-red", config.lambdaRed);
+document.documentElement.style.setProperty("--error-red", config.errorRed);
+document.documentElement.style.setProperty("--transparent", config.transparent);
 
 document.documentElement.style.setProperty("--textarea-min-height", config.textAreaMinHeight);
 document.documentElement.style.setProperty("--textarea-min-width", config.textAreaMinWidth);

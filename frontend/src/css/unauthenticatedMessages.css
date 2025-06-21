@@ -28,7 +28,6 @@
 
 .error-container {
 	min-height: 50px;
-	/* background-color: red; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -39,6 +38,8 @@
 	background-color: var(--tertiary-color);
 	padding: var(--standard-padding);
 	border-radius: var(--container-border-radius);
+	background-color: var(--error-red);
+	color: white;
 }
 
 /* ADD MESSAGE FORM */
@@ -70,7 +71,12 @@
 	min-width: var(--textarea-min-width);
 	min-height: var(--textarea-min-height);
 	height: 100%;
-	border: none;
+	border: 3px solid var(--transparent);
+}
+
+.add-message-form textarea:focus {
+	outline: none;
+	border: 3px solid var(--primary-color);
 }
 
 .add-message-form button {
@@ -119,6 +125,7 @@
 	padding: var(--standard-padding);
 }
 
+
 .message-main-content {
 	display: flex;
 	width: 100%;
@@ -133,7 +140,12 @@
 	min-height: var(--textarea-min-height);
 	flex: 1;
 	margin: 20px;
-	border: none;
+	border: 3px solid var(--transparent);
+}
+
+.message-main-content textarea:focus {
+	outline: none;
+	border: 3px solid var(--primary-color);
 }
 
 .message-action {
@@ -146,7 +158,10 @@
 }
 
 .message-action.delete {
-	color: red;
+	color: var(--error-red);
+}
+.message-action.cancel {
+	color: var(--error-red);
 }
 
 .message-action:hover {
@@ -156,3 +171,13 @@
 /* .message-created-at {
 	color: white;
 } */
+
+/* ERROR MESSAGE WHILE EDITING */
+.message.error textarea {
+	border: 3px solid var(--error-red);
+}
+
+.message.error textarea:focus {
+	border: 3px solid var(--error-red);
+	outline: none;
+}
