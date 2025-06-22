@@ -3,8 +3,7 @@ const config = {
 
 	// -----------------
 	colorThemes: {
-
-		"minty": {
+		minty: {
 			primaryColor: "#74c8ae",
 			secondaryColor: "#F4A127",
 			tertiaryColor: "#FFDAC1",
@@ -36,40 +35,38 @@ const config = {
 			secondaryBackgroundColor: "#DCE4E2",
 		},
 
-		"pink": {
-			primaryColor: "#FF7597",           // Bubblegum punch – playful but bold
-			secondaryColor: "#7161EF",         // Electric periwinkle – ADHD sparkle magic
-			tertiaryColor: "#FFD29D",          // Warm peach glow – inner child healing energy
+		pink: {
+			primaryColor: "#FF7597", // Bubblegum punch – playful but bold
+			secondaryColor: "#7161EF", // Electric periwinkle – ADHD sparkle magic
+			tertiaryColor: "#FFD29D", // Warm peach glow – inner child healing energy
 			primaryBackgroundColor: "#FDF0F3", // Light rose milk – cozy, soft, dreamy
 			secondaryBackgroundColor: "#DDE4F4", // Soft periwinkle sky – a little melancholy, a lot thoughtful
 		},
 
-		"peachy": {
-			primaryColor: "#FF6B6B",              // Fiery coral
-			secondaryColor: "#FFD93D",            // Citrus yellow
-			tertiaryColor: "#FFB5A7",             // Light watermelon
-			primaryBackgroundColor: "#FFF1E6",    // Creamy dusk
-			secondaryBackgroundColor: "#FDEBD0",  // Soft orange sherbet
+		peachy: {
+			primaryColor: "#FF6B6B", // Fiery coral
+			secondaryColor: "#FFD93D", // Citrus yellow
+			tertiaryColor: "#FFB5A7", // Light watermelon
+			primaryBackgroundColor: "#FFF1E6", // Creamy dusk
+			secondaryBackgroundColor: "#FDEBD0", // Soft orange sherbet
 		},
 
-		"mustard": {
-			primaryColor: "#D97700",              // Spicy Mustard
-			secondaryColor: "#FFB84C",            // Honey Apricot
-			tertiaryColor: "#FCE09B",             // Light Toasted Cream
-			primaryBackgroundColor: "#FFF8E1",    // Ivory Flat
-			secondaryBackgroundColor: "#F5E7C4",  // Baked Beige
+		mustard: {
+			primaryColor: "#D97700", // Spicy Mustard
+			secondaryColor: "#FFB84C", // Honey Apricot
+			tertiaryColor: "#FCE09B", // Light Toasted Cream
+			primaryBackgroundColor: "#FFF8E1", // Ivory Flat
+			secondaryBackgroundColor: "#F5E7C4", // Baked Beige
 		},
 
-		"clouds": {
+		clouds: {
 			// name: "Cloud Whisper",
-			primaryColor: "#E0E0E0",               // Soft Ash
-			secondaryColor: "#D6D6D6",             // Misty Pearl
-			tertiaryColor: "#CCCCCC",              // Pale Grey Fade
-			primaryBackgroundColor: "#FAFAFA",     // Bare Whisper White
-			secondaryBackgroundColor: "#F2F2F2",   // Fog-Touched Silver
-		}
-
-
+			primaryColor: "#E0E0E0", // Soft Ash
+			secondaryColor: "#D6D6D6", // Misty Pearl
+			tertiaryColor: "#CCCCCC", // Pale Grey Fade
+			primaryBackgroundColor: "#FAFAFA", // Bare Whisper White
+			secondaryBackgroundColor: "#F2F2F2", // Fog-Touched Silver
+		},
 	},
 
 	// -----------------
@@ -133,7 +130,7 @@ function applyTheme(themeKey) {
 
 // applyTheme( "minty" );
 // applyTheme( "cool blue" );
-applyTheme( "cool grey" );
+applyTheme("cool grey");
 // applyTheme( "eris morn" );
 // applyTheme( "pink" );
 // applyTheme( "peachy" );

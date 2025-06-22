@@ -1,0 +1,13 @@
+.app-content-container {
+	padding: 0px;
+}
+.single-video-game-container {
+	/* border: 3px solid red; */
+	width: 100%;
+	margin: 0px;
+}
+
+.video-game-cover-image {
+	width: 100%;
+	height: auto;
+}

@@ -15,7 +15,9 @@ import LambdaStamp from "./images/LambdaStamp.png";
 // import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
 import { GitHub, Linkedin, Briefcase, User as MaxIcon, Coffee as SchoolIcon, Tool as ToolIcon } from "react-feather";
 import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
-import VideoGames from "./components/videoGames.js";
+import VideoGames from "./components/videoGameList.js";
+// import VideoGameView from "./components/videoGameView.js";
+import VideoGamePageWrapper from "./components/videoGameWrapper.js";
 
 export default function AppRouting() {
 	return (
@@ -48,6 +50,7 @@ export default function AppRouting() {
 					<Route path="weather" element={<Weather />} />
 					<Route path="unauthenticatedMessages" element={<UnauthenticatedMessages />} />
 					<Route path="videoGames" element={<VideoGames />} />
+					<Route path="videoGames/:id" element={<VideoGamePageWrapper />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>

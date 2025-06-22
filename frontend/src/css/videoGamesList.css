@@ -1,28 +1,28 @@
 .video-games-app-container {
 	width: 100%;
-    /* border: 3px solid yellow; */
-    /* width: fit-content; */
+	/* border: 3px solid yellow; */
+	/* width: fit-content; */
 	display: flex;
 	flex-direction: column;
 }
 
 .app-content-container {
 	display: flex;
-    /* display: block; */
-    flex-direction: row;
+	/* display: block; */
+	flex-direction: row;
 	justify-content: flex-start;
-    align-items: center;
+	align-items: center;
 	flex-wrap: wrap;
 	width: 100%;
 	padding: var(--standard-padding);
 }
 
 .container-block {
-    width: 50%;
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: center;
-    padding: var(--standard-padding);
+	width: 50%;
+	/* border: 1px solid black; */
+	display: flex;
+	justify-content: center;
+	padding: var(--standard-padding);
 }
 
 .title-container {
@@ -38,7 +38,7 @@
 .video-game-container {
 	width: 500px;
 	height: 300px;
-    /* width: 50%;
+	/* width: 50%;
 	height: 290px; */
 	border: 3px solid var(--secondary-background-color);
 	background-color: black;
@@ -50,34 +50,32 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	/* margin: var(--standard-padding); */
-    /* transition: var(--transition-time); */
-    transition: 0.7s;
-    background-repeat: no-repeat;
-    background-size: 120%;
-    /* background-size: cover; */
-    /* margin: 0 auto; */
+	transition: 0.4s ease-in-out;
+	/* transition: 0.7s; */
+	background-repeat: no-repeat;
+	/* background-size: 115%; */
+	background-size: cover;
+	/* margin: 0 auto; */
 }
 
 .video-game-container:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    background-size: 110%;
-	box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+	cursor: pointer;
+	transform: scale(1.03);
+	/* background-size: 107%; */
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 	/* transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease; */
 }
 
 .video-game-details-container {
-	background-color: rgba(198, 198, 198, 0.166);
+	background-color: rgba(0, 0, 0, 0.699);
 	backdrop-filter: blur(2px);
+
 	color: white;
 	display: flex;
-	/* flex-direction: column; */
-	/* width: 100%; */
-	margin: var(--standard-padding);
 	padding: var(--standard-padding);
-	border-radius: var(--container-border-radius);
 	justify-content: space-between;
 	align-items: center;
+	border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius);
 }
 
 .video-game-header-content {
@@ -90,7 +88,8 @@
 	font-family: var(--primary-font);
 	font-weight: var(--primary-font-weight);
 	font-size: 18px;
-	text-decoration: underline;
+	color: var(--secondary-color);
+	/* text-decoration: underline; */
 	text-align: left;
 }
 
@@ -101,9 +100,9 @@
 }
 
 .video-game-platform {
-    letter-spacing: 0.5px;
+	letter-spacing: 0.5px;
 	font-size: 0.85rem;
-    font-weight: 500;
+	font-weight: 500;
 }
 
 .rating-icon {
