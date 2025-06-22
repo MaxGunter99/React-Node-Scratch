@@ -8,6 +8,7 @@
 	/* font-size: calc(10px + 2vmin); */
 	/* color: white; */
 	text-wrap: wrap;
+	/* background-color: var(--primary-background-color); */
 }
 
 .app-header {

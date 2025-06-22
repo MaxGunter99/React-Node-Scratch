@@ -153,10 +153,6 @@ export default function Home() {
 							Backend video game list should be <strong>filterable</strong> based on platform, rating, and
 							favorite
 						</li>
-						<li>
-							Backend video game list should be <strong>filterable</strong> based on platform, rating, and
-							favorite
-						</li>
 					</ul>
 				</div>
 				<br />

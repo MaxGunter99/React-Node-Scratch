@@ -1,5 +1,6 @@
 import { React, Component } from "react";
 import { connect } from "react-redux";
+import { Star } from "react-feather";
 import { getVideoGames } from "../actions/videoGameActions";
 
 import "../css/videoGames.css";
@@ -14,7 +15,7 @@ class videoGamesList extends Component {
 		return (
 			<div className="video-games-app-container">
 				<div className="title-container">
-					<h2>Video Games</h2>
+					<h2 className="section-title">Video Games</h2>
 					<p>
 						List video games, add to the list, rate them, show images, all powered by class components and
 						redux
@@ -35,9 +36,9 @@ class videoGamesList extends Component {
 					</div>
 				) : (
 					<div className="app-content-container">
-						{this.props.videoGames.map((videoGame, id) => {
-							return <VideoGame key={id} videoGame={videoGame} />;
-						})}
+                        {this.props.videoGames.map((videoGame, id) => {
+                            return <VideoGame key={id} videoGame={videoGame} />;
+                        })}
 					</div>
 				)}
 			</div>
@@ -46,23 +47,44 @@ class videoGamesList extends Component {
 }
 
 const VideoGame = (props) => {
+
 	return (
-		<div className="video-game-container">
-			<p>id: {props.videoGame.id}</p>
-			<p>uuid: {props.videoGame.uuid}</p>
-			<p>name: {props.videoGame.name}</p>
-			<p>platform: {props.videoGame.platform}</p>
-			<p>rating: {props.videoGame.rating}</p>
-			<p>genre: {props.videoGame.genre}</p>
-			<p>cover_image_url: {props.videoGame.cover_image_url}</p>
-			<p>external_url: {props.videoGame.external_url}</p>
-			<p>favorite: {props.videoGame.favorite}</p>
-			<p>comments: {props.videoGame.comments}</p>
-			<p>completed: {props.videoGame.completed}</p>
-			<p>replayable: {props.videoGame.replayable}</p>
-			<p>started_at: {props.videoGame.started_at}</p>
-			<p>finished_at: {props.videoGame.finished_at}</p>
+
+        <div className="container-block">
+		<div className="video-game-container" style={{ backgroundImage: `url(${props.videoGame.cover_image_url})` }}>
+			{/* <p>id: {props.videoGame.id}</p> */}
+			{/* <p>uuid: {props.videoGame.uuid}</p> */}
+			<div className="video-game-details-container">
+				<div className="video-game-header-content">
+					<h5 className="video-game-title">{props.videoGame.name}</h5>
+					<p className="video-game-platform">
+						{props.videoGame.platform
+							.split("_")
+							.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+							.join(" ")
+                        }
+					</p>
+				</div>
+				{/* <p>rating: { returnStars() }</p> */}
+				<p className="video-game-rating">
+					{Array.from({ length: 5 }).map((_, i) => (
+						<Star key={i} className={`rating-icon ${i < props.videoGame.rating.length ? "active" : ""}`} />
+					))}
+				</p>
+
+				{/* <p>favorite: {props.videoGame.favorite}</p> */}
+			</div>
+			{/* <img className="cover-image" src={props.videoGame.cover_image_url} /> */}
+			{/* <p>genre: {props.videoGame.genre}</p> */}
+			{/* <p>cover_image_url: {props.videoGame.cover_image_url}</p> */}
+			{/* <p>external_url: {props.videoGame.external_url}</p> */}
+			{/* <p>comments: {props.videoGame.comments}</p> */}
+			{/* <p>completed: {props.videoGame.completed}</p> */}
+			{/* <p>replayable: {props.videoGame.replayable}</p> */}
+			{/* <p>started_at: {props.videoGame.started_at}</p> */}
+			{/* <p>finished_at: {props.videoGame.finished_at}</p> */}
 		</div>
+        </div>
 	);
 };
 
