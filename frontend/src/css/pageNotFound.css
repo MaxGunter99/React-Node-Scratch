@@ -8,7 +8,7 @@
 	height: fit-content;
 	align-self: center;
 	background-color: var(--primary-background-color);
-	border-radius: var(--container-border-radius);
+	border-radius: var(--standard-border-radius);
 }
 
 .page-not-found-message {

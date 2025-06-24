@@ -48,7 +48,7 @@
 	transition: var(--transition-time);
 	border-top: 5px solid var(--secondary-background-color);
 	border-bottom: 5px solid var(--secondary-background--color);
-	border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius);
+	border-radius: 0px 0px var(--standard-border-radius) var(--standard-border-radius);
 }
 
 .nav-item:hover {
@@ -65,7 +65,7 @@
 	/* border-top: 5px solid var(--secondary-color); */
 	/* border-bottom: 5px solid var(--primary-background-color); */
 	background-color: var(--primary-color);
-	/* border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius); */
+	/* border-radius: 0px 0px var(--standard-border-radius) var(--standard-border-radius); */
 }
 
 .route-content {
@@ -107,7 +107,7 @@
 	padding: var(--standard-padding);
 	height: fit-content;
 	/* background-color: var(--secondary-background-color); */
-	/* border-radius: var(--container-border-radius); */
+	/* border-radius: var(--standard-border-radius); */
 }
 
 .footer-section.left {
@@ -117,7 +117,7 @@
 	text-align: right;
 	/* border-top: 3px solid var(--tertiary-color);
 	border-bottom: 3px solid var(--tertiary-color);
-	border-radius: var(--container-border-radius) 0px 0px var(--container-border-radius); */
+	border-radius: var(--standard-border-radius) 0px 0px var(--standard-border-radius); */
 	/* background-color: var(--secondary-background-color); */
 }
 
@@ -128,7 +128,7 @@
 	text-align: left;
 	/* border-top: 3px solid var(--tertiary-color);
 	border-bottom: 3px solid var(--tertiary-color);
-	border-radius: 0px var(--container-border-radius) var(--container-border-radius) 0px; */
+	border-radius: 0px var(--standard-border-radius) var(--standard-border-radius) 0px; */
 	/* background-color: var(--secondary-background-color); */
 }
 

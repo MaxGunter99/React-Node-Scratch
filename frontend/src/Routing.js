@@ -2,24 +2,33 @@
 import "./css/routing.css";
 
 // DEPENDENCIES
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useParams, useNavigate } from "react-router-dom";
 
 // COMPONENTS
 import Home from "./components/home.js";
 import PageNotFound from "./components/pageNotFound.js";
 import Weather from "./components/weather.js";
 import config from "./config.js";
-// import Logo from "./images/FavIconTransparent.PNG"
-// import Logo from "./images/FavIcon.png";
 import LambdaStamp from "./images/LambdaStamp.png";
-// import { Github, Linkedin, BriefcaseBusiness } from "feather-icons";
 import { GitHub, Linkedin, Briefcase, User as MaxIcon, Coffee as SchoolIcon, Tool as ToolIcon } from "react-feather";
 import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
-import VideoGames from "./components/videoGameList.js";
-// import VideoGameView from "./components/videoGameView.js";
-import VideoGamePageWrapper from "./components/videoGameWrapper.js";
+import VideoGamesIndex from "./components/VideoGames/index.js";
+import VideoGameView from "./components/VideoGames/view.js";
+import VideoGameForm from "./components/VideoGames/form.js";
 
 export default function AppRouting() {
+	const VideoGameViewWrapper = () => {
+		const { id } = useParams();
+		return <VideoGameView id={id} />;
+	};
+
+	const VideoGameFormWrapper = ({formMode}) => {
+	
+		const { id } = useParams();
+		const navigate = useNavigate();
+		return <VideoGameForm id={id} navigate={navigate} formMode={formMode} />;
+	};
+
 	return (
 		<div className="app-routing">
 			<header className="app-header">
@@ -49,8 +58,10 @@ export default function AppRouting() {
 					<Route path="home" element={<Home />} />
 					<Route path="weather" element={<Weather />} />
 					<Route path="unauthenticatedMessages" element={<UnauthenticatedMessages />} />
-					<Route path="videoGames" element={<VideoGames />} />
-					<Route path="videoGames/:id" element={<VideoGamePageWrapper />} />
+					<Route path="videoGames" element={<VideoGamesIndex />} />
+					<Route path="videoGames/:id" element={<VideoGameViewWrapper />} />
+					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit"/>} />
+					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add"/>} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>

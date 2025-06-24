@@ -1,0 +1,71 @@
+.edit-video-game-form-container {
+	/* border: 3px solid red; */
+	width: 100%;
+	flex: 1;
+	padding: var(--standard-padding);
+}
+
+.edit-video-game-form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	padding: var(--standard-padding);
+	background-color: var(--primary-background-color);
+	border-radius: var(--standard-border-radius);
+}
+
+.edit-video-game-form-row {
+	/* border: 3px solid black; */
+	display: flex;
+	justify-content: space-evenly;
+	/* padding: var(--standard-padding); */
+}
+
+.edit-video-game-form-row.disabled {
+	/* border: 3px solid red; */
+	background-color: var(--primary-color);
+}
+
+.edit-video-game-form-row label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* width: 30%; */
+	/* max-width: 30%; */
+	flex: 1;
+	border: 3px solid var(--primary-color);
+	padding: var(--standard-padding);
+}
+
+.edit-video-game-form-row label .form-field {
+	flex: 1;
+	margin-left: 5px;
+}
+
+.edit-video-game-form-row.image-preview {
+	display: flex;
+	flex-direction: column;
+	padding: var(--standard-padding);
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 300px;
+}
+
+.edit-video-game-form-row.image-preview img {
+	height: auto;
+	width: auto;
+	max-height: 200px;
+	margin: var(--standard-padding);
+}
+
+.edit-video-game-form-row.buttons button {
+	/* border: 3px solid red; */
+	margin: var(--standard-padding);
+	padding: var(--standard-padding);
+	background-color: var(--primary-color);
+	border-radius: var(--standard-border-radius);
+}
+
+.edit-video-game-form-row.buttons button:hover {
+	cursor: pointer;
+}

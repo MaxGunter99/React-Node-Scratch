@@ -104,7 +104,7 @@ const config = {
 	// -----------------
 
 	transitionTime: "0.2s",
-	containerBorderRadius: "10px",
+	standardBorderRadius: "10px",
 	standardPadding: "0.75em",
 	standardIconSize: "20px",
 	standardIconStrokeWidth: "2px",
@@ -148,7 +148,7 @@ document.documentElement.style.setProperty("--primary-font-size", config.primary
 document.documentElement.style.setProperty("--primary-font-weight", config.primaryFontWeight);
 
 document.documentElement.style.setProperty("--transition-time", config.transitionTime);
-document.documentElement.style.setProperty("--container-border-radius", config.containerBorderRadius);
+document.documentElement.style.setProperty("--standard-border-radius", config.standardBorderRadius);
 document.documentElement.style.setProperty("--standard-padding", config.standardPadding);
 document.documentElement.style.setProperty("--standard-icon-size", config.standardIconSize);
 document.documentElement.style.setProperty("--standard-icon-stroke-width", config.standardIconStrokeWidth);

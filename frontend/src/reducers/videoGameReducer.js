@@ -5,10 +5,16 @@ import {
 	FETCH_VIDEO_GAME_START,
 	FETCH_VIDEO_GAME_SUCCESS,
 	FETCH_VIDEO_GAME_FAILURE,
+	UPDATE_VIDEO_GAME_START,
+	UPDATE_VIDEO_GAME_SUCCESS,
+	UPDATE_VIDEO_GAME_FAILURE,
+	ADD_VIDEO_GAME_START,
+	ADD_VIDEO_GAME_SUCCESS,
+	ADD_VIDEO_GAME_FAILURE,
 } from "../actions/videoGameActions";
 
 const initialState = {
-	fetchingVideoGames: true,
+	loading: true,
 	videoGames: [],
 	videoGameViewData: null,
 	error: null,
@@ -19,7 +25,7 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAMES_START:
 			return {
 				...state,
-				fetchingVideoGames: true,
+				loading: true,
 				videoGames: [],
 				videoGameViewData: null,
 				error: null,
@@ -28,7 +34,7 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAMES_SUCCESS:
 			return {
 				...state,
-				fetchingVideoGames: false,
+				loading: false,
 				videoGames: action.payload,
 				videoGameViewData: null,
 				error: null,
@@ -37,7 +43,7 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAMES_FAILURE:
 			return {
 				...state,
-				fetchingVideoGames: false,
+				loading: false,
 				videoGames: [],
 				videoGameViewData: null,
 				error: action.payload,
@@ -46,7 +52,7 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAME_START:
 			return {
 				...state,
-				fetchingVideoGames: true,
+				loading: true,
 				videoGames: [],
 				videoGameViewData: null,
 				error: null,
@@ -55,7 +61,7 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAME_SUCCESS:
 			return {
 				...state,
-				fetchingVideoGames: false,
+				loading: false,
 				videoGames: [],
 				videoGameViewData: action.payload,
 				error: null,
@@ -64,7 +70,59 @@ export const videoGameReducer = (state = initialState, action) => {
 		case FETCH_VIDEO_GAME_FAILURE:
 			return {
 				...state,
-				fetchingVideoGames: false,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: null,
+				error: action.payload,
+			};
+		case UPDATE_VIDEO_GAME_START:
+			return {
+				...state,
+				loading: true,
+				videoGames: [],
+				videoGameViewData: null,
+				error: null,
+			};
+
+		case UPDATE_VIDEO_GAME_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: action.payload,
+				error: null,
+			};
+
+		case UPDATE_VIDEO_GAME_FAILURE:
+			return {
+				...state,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: null,
+				error: action.payload,
+			};
+		case ADD_VIDEO_GAME_START:
+			return {
+				...state,
+				loading: true,
+				videoGames: [],
+				videoGameViewData: null,
+				error: null,
+			};
+
+		case ADD_VIDEO_GAME_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: action.payload,
+				error: null,
+			};
+
+		case ADD_VIDEO_GAME_FAILURE:
+			return {
+				...state,
+				loading: false,
 				videoGames: [],
 				videoGameViewData: null,
 				error: action.payload,

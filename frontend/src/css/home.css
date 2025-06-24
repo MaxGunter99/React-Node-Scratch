@@ -15,7 +15,7 @@
 .section-header {
 	background-color: var(--secondary-background-color);
 	padding: var(--standard-padding);
-	border-radius: 0px 0px var(--container-border-radius) var(--container-border-radius);
+	border-radius: 0px 0px var(--standard-border-radius) var(--standard-border-radius);
 }
 
 .content-container {
@@ -28,7 +28,7 @@
 	margin: 10px;
 	padding: var(--standard-padding);
 	/* width: 100%; */
-	border-radius: var(--container-border-radius);
+	border-radius: var(--standard-border-radius);
 }
 .description p {
 	padding: var(--standard-padding);
@@ -39,7 +39,7 @@
 	margin: 0 auto;
 	background-color: var(--primary-background-color);
 	padding: var(--standard-padding);
-	border-radius: var(--container-border-radius);
+	border-radius: var(--standard-border-radius);
 }
 
 .tool-details-container {
@@ -74,7 +74,7 @@
 	color: blue;
 	margin: var(--standard-padding);
 	/* padding: var(--standard-padding); */
-	border-radius: var(--container-border-radius);
+	border-radius: var(--standard-border-radius);
 	transition: var(--transition-time);
 }
 
