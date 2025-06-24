@@ -38,9 +38,9 @@ class VideoGameForm extends Component {
 	handleChanges = (event) => {
 		const { name, value } = event.target;
 		const updatedState = {
-            ...this.state,
+            // ...this.state,
 			videoGameEdits: {
-				...this.props.videoGameViewData,
+				...this.state.videoGameEdits,
 				[name]: value,
 			},
 		};
@@ -62,11 +62,12 @@ class VideoGameForm extends Component {
                 await this.props.addVideoGame(this.state.videoGameEdits);
             }
 
+            this.props.navigate(-1);
+
 		} catch (error) {
             console.log( error )
 			return this.setState(...this.state, { submittedUpdates: true });
 		}
-		this.props.navigate(-1);
 	};
 
 	abortChanges = () => {
