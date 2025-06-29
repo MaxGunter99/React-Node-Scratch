@@ -1,14 +1,37 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Star, Edit } from "react-feather";
+import { Star, Edit, ArrowLeft, Trash } from "react-feather";
 import { Link } from "react-router-dom";
 import "../../css/videoGameView.css";
 
-import { getVideoGame } from "../../actions/videoGameActions";
+import { getVideoGame, deleteVideoGame } from "../../actions/videoGameActions";
 
 class VideoGameView extends Component {
+
 	componentDidMount() {
 		this.props.getVideoGame(this.props.id);
+	}
+
+	goBack = () => {
+		return this.props.navigate(-1);
+	}
+	
+	deleteGame = async () => {
+
+		var videoGameDeleted = false;
+
+		try {
+			await this.props.deleteVideoGame( this.props.id );
+			videoGameDeleted = true;
+			
+		} catch ( error ) {
+			console.log( "Error deleting Video Game: ", error )
+		}
+
+		if ( videoGameDeleted === true ) {
+			return this.props.navigate(-1);
+		}
+		
 	}
 
 	render() {
@@ -41,9 +64,15 @@ class VideoGameView extends Component {
 									</p>
 								</div>
 
-								<div className="title-section">
+								<div className="title-section-actions">
+									<Link onClick={this.goBack}>
+										<ArrowLeft className="back-button icon" />
+									</Link>
 									<Link to={`/videoGames/${this.props.videoGameViewData.id}/edit`}>
-										<Edit className="edit-button" />
+										<Edit className="edit-button icon" />
+									</Link>
+									<Link onClick={this.deleteGame}>
+										<Trash className="delete-button icon" />
 									</Link>
 								</div>
 							</div>
@@ -93,4 +122,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { getVideoGame })(VideoGameView);
+export default connect(mapStateToProps, { getVideoGame, deleteVideoGame })(VideoGameView);

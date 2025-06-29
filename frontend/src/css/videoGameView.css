@@ -43,6 +43,45 @@
 	border-radius: var(--standard-border-radius);
 }
 
+.title-section-actions {
+	/* border: 3px solid black; */
+	/* padding: var(--standard-padding) */
+	height: auto;
+	background-color: var(--primary-background-color);
+	border-radius: var(--standard-border-radius);
+}
+
+/* .title-section-actions Link {
+	height: auto;
+	width: auto;
+	height: var(--standard-icon-size);
+	width: var(--standard-icon-size);
+} */
+
+.title-section-actions svg.icon {
+	/* border: 3px solid red; */
+	height: var(--standard-icon-size);
+	width: var(--standard-icon-size);
+	margin: var(--standard-padding);
+	color: black;
+	transition: var(--transition-time);
+}
+
+svg.delete-button:hover {
+	/* border: 3px solid red; */
+	color: red;
+}
+
+svg.edit-button:hover {
+	/* border: 3px solid red; */
+	color: var(--primary-color);
+}
+
+svg.back-button:hover {
+	/* border: 3px solid red; */
+	color: var(--secondary-color);
+}
+
 .video-game-view-title {
 	font-family: var(--primary-font);
 	font-size: 40px;

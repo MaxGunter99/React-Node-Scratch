@@ -106,7 +106,7 @@ const config = {
 	transitionTime: "0.2s",
 	standardBorderRadius: "10px",
 	standardPadding: "0.75em",
-	standardIconSize: "20px",
+	standardIconSize: "25px",
 	standardIconStrokeWidth: "2px",
 
 	lambdaRed: "#e83944",

@@ -19,7 +19,8 @@ import VideoGameForm from "./components/VideoGames/form.js";
 export default function AppRouting() {
 	const VideoGameViewWrapper = () => {
 		const { id } = useParams();
-		return <VideoGameView id={id} />;
+		const navigate = useNavigate();
+		return <VideoGameView id={id} navigate={navigate}/>;
 	};
 
 	const VideoGameFormWrapper = ({formMode}) => {

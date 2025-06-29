@@ -11,6 +11,9 @@ import {
 	ADD_VIDEO_GAME_START,
 	ADD_VIDEO_GAME_SUCCESS,
 	ADD_VIDEO_GAME_FAILURE,
+	DELETE_VIDEO_GAME_START,
+	DELETE_VIDEO_GAME_SUCCESS,
+	DELETE_VIDEO_GAME_FAILURE,
 } from "../actions/videoGameActions";
 
 const initialState = {
@@ -120,6 +123,33 @@ export const videoGameReducer = (state = initialState, action) => {
 			};
 
 		case ADD_VIDEO_GAME_FAILURE:
+			return {
+				...state,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: null,
+				error: action.payload,
+			};
+
+		case DELETE_VIDEO_GAME_START:
+			return {
+				...state,
+				loading: true,
+				videoGames: [],
+				videoGameViewData: null,
+				error: null,
+			};
+
+		case DELETE_VIDEO_GAME_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				videoGames: [],
+				videoGameViewData: action.payload,
+				error: null,
+			};
+
+		case DELETE_VIDEO_GAME_FAILURE:
 			return {
 				...state,
 				loading: false,

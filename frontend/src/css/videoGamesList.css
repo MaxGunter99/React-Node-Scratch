@@ -53,17 +53,20 @@
 	transition: 0.4s ease-in-out;
 	/* transition: 0.7s; */
 	background-repeat: no-repeat;
-	/* background-size: 115%; */
-	background-size: cover;
-	/* margin: 0 auto; */
+	/* background-size: cover; */
+
+	/* FOR PARALLAX */
+	background-size: 115%;
 }
 
 .video-game-container:hover {
 	cursor: pointer;
 	transform: scale(1.03);
-	/* background-size: 107%; */
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 	/* transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease; */
+
+	/* FOR PARALLAX */
+	background-size: 107%;
 }
 
 .video-game-details-container {
@@ -89,7 +92,7 @@
 	font-weight: var(--primary-font-weight);
 	font-size: 18px;
 	color: var(--secondary-color);
-	/* text-decoration: underline; */
+	text-decoration: none;
 	text-align: left;
 }
 
@@ -114,4 +117,8 @@
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
 	color: gold;
+}
+
+.error-message {
+	margin: 0 auto;
 }

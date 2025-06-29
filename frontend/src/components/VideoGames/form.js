@@ -49,16 +49,12 @@ class VideoGameForm extends Component {
 
 	submitChanges = async (event) => {
 		event.preventDefault();
-		console.log(this.props);
-		console.log(this.state.videoGameEdits);
 		try {
 
             if ( this.props.formMode === "edit" ) {
-                console.log("editing")
                 await this.props.updateVideoGame(this.state.videoGameEdits);
 
             } else if ( this.props.formMode === "add" ) {
-                console.log("adding")
                 await this.props.addVideoGame(this.state.videoGameEdits);
             }
 
