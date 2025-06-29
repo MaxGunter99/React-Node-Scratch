@@ -46,7 +46,7 @@ Back-End Code: [Here](backend/routes/unauthenticatedMessagesRouter.js) </br>
 
 
 ###  Redux Video Game Tracker
-Status: Incomplete
+Status: In Progress
 
 Front-End Code: [Here](frontend/src/components/unauthenticatedMessages.js) </br>
 Back-End Code: [Here](backend/routes/videoGamesRouter.js) </br>
