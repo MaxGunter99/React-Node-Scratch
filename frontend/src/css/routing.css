@@ -45,7 +45,7 @@
 	color: rgb(0, 0, 0);
 	text-decoration: none;
 	padding: var(--standard-padding);
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 	border-top: 5px solid var(--secondary-background-color);
 	border-bottom: 5px solid var(--secondary-background--color);
 	border-radius: 0px 0px var(--standard-border-radius) var(--standard-border-radius);
@@ -148,7 +148,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 }
 
 .icon-pair:hover {

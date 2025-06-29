@@ -65,13 +65,13 @@ class VideoGameView extends Component {
 								</div>
 
 								<div className="title-section-actions">
-									<Link onClick={this.goBack}>
+									<Link onClick={this.goBack} title="back">
 										<ArrowLeft className="back-button icon" />
 									</Link>
-									<Link to={`/videoGames/${this.props.videoGameViewData.id}/edit`}>
-										<Edit className="edit-button icon" />
+									<Link to={`/videoGames/${this.props.videoGameViewData.id}/edit`} title="edit">
+										<Edit className="edit-button icon"/>
 									</Link>
-									<Link onClick={this.deleteGame}>
+									<Link onClick={this.deleteGame} title="delete">
 										<Trash className="delete-button icon" />
 									</Link>
 								</div>

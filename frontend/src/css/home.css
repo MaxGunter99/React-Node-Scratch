@@ -75,7 +75,7 @@
 	margin: var(--standard-padding);
 	/* padding: var(--standard-padding); */
 	border-radius: var(--standard-border-radius);
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 }
 
 .link-icon:hover {

@@ -85,7 +85,7 @@
 	padding: var(--standard-padding);
 	background-color: var(--secondary-background-color);
 	height: 100%;
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 }
 
 .add-message-form button:hover {
@@ -153,7 +153,7 @@
 	stroke-width: var(--standard-icon-stroke-width);
 	/* padding: var(--standard-padding); */
 	margin: 5px;
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 	border-radius: var(--standard-border-radius);
 }
 

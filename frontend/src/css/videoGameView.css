@@ -45,7 +45,7 @@
 
 .title-section-actions {
 	/* border: 3px solid black; */
-	/* padding: var(--standard-padding) */
+	/* padding: var(--standard-padding); */
 	height: auto;
 	background-color: var(--primary-background-color);
 	border-radius: var(--standard-border-radius);
@@ -62,9 +62,9 @@
 	/* border: 3px solid red; */
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
-	margin: var(--standard-padding);
+	margin: 10px;
 	color: black;
-	transition: var(--transition-time);
+	transition: var(--standard-transition);
 }
 
 svg.delete-button:hover {

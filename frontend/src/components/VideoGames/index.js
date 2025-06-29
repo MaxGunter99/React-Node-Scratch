@@ -16,14 +16,16 @@ class VideoGamesIndex extends Component {
 	render() {
 		return (
 			<div className="video-games-app-container">
-				<div className="title-container">
-					<h2 className="section-title">Video Games</h2>
-					<p>
-						List video games, add to the list, rate them, show images, all powered by class components and
-						redux
-					</p>
-                    <Link to="/videoGames/add">
-                        <Plus/>
+				<div className="video-games-app-header-container">
+					<div className="header-text-container">
+						<h2 className="section-title">Video Games</h2>
+						<p>
+							List video games, add to the list, rate them, show images, all powered by class components and
+							redux
+						</p>
+					</div>
+                    <Link to="/videoGames/add" title="add">
+                        <Plus className="add-button icon"/>
                     </Link>
 				</div>
 
