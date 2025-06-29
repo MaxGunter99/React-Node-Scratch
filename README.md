@@ -1,14 +1,12 @@
 # React-Node-Scratch
 
-Run React Frontend with: `make run-frontend`
-</br>
-Run React Backend with: `make run-backend`
-</br>
+## Run Commands
 
-Check ALL files with Prettier: `make check-prettier`
-</br>
-Format ALL files with Prettier: `make run-prettier`
-</br>
+Run React Frontend with: `make run-frontend` </br>
+Run React Backend with: `make run-backend` </br>
+
+Check ALL files with Prettier: `make check-prettier` </br>
+Format ALL files with Prettier: `make run-prettier` </br>
 
 
 # What's the purpose?
@@ -23,6 +21,8 @@ Multi-Tool is a hands-on React sandbox built to level up your frontend and backe
 ### The Weather
 Status: Complete
 
+Code: [Here](frontend/src/components/weather.js) </br>
+
 * The Weather — live, geolocation-based weather data with caching
 * Utilizes a free weather API: https://www.weatherapi.com
 * Caches weather data every hour rather than requesting it on every refresh
@@ -31,6 +31,9 @@ Status: Complete
 
 ### Unauthenticated Messages
 Status: Incomplete
+
+Front-End Code: [Here](frontend/src/components/unauthenticatedMessages.js) </br>
+Back-End Code: [Here](backend/routes/unauthenticatedMessagesRouter.js) </br>
 
 * Connected to a database using custom Node.js API routes
 * Dynamic frontend built with React Hooks and functional components
@@ -45,6 +48,9 @@ Status: Incomplete
 ###  Redux Video Game Tracker
 Status: Incomplete
 
+Front-End Code: [Here](frontend/src/components/unauthenticatedMessages.js) </br>
+Back-End Code: [Here](backend/routes/videoGamesRouter.js) </br>
+
 * Connected to a database using custom Node.js API routes
 * Utilizes redux for state management and Class Components
 * Add, change, or delete a list of video games played
@@ -57,6 +63,8 @@ Status: Incomplete
 
 ### Book Club or Watch List
 Status: Incomplete
+
+<!-- Code: [Here]() </br> -->
 
 Mini-app that showcases user authentication and Redux in a book club or watch list setting
 Redux should utilize: "redux", "react-redux", "redux-thunk", "redux-logger"
