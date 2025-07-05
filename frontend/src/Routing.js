@@ -16,6 +16,8 @@ import VideoGamesIndex from "./components/VideoGames/index.js";
 import VideoGameView from "./components/VideoGames/view.js";
 import VideoGameForm from "./components/VideoGames/form.js";
 
+import BookHome from "./components/BookClub/bookHome.js";
+
 export default function AppRouting() {
 	const VideoGameViewWrapper = () => {
 		const { id } = useParams();
@@ -50,6 +52,10 @@ export default function AppRouting() {
 					<NavLink className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")} to="/videoGames">
 						Video Games
 					</NavLink>
+
+					<NavLink className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")} to="/bookClub">
+						Book Club
+					</NavLink>
 				</nav>
 			</header>
 
@@ -63,6 +69,7 @@ export default function AppRouting() {
 					<Route path="videoGames/:id" element={<VideoGameViewWrapper />} />
 					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit"/>} />
 					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add"/>} />
+					<Route path="bookClub" element={<BookHome />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>

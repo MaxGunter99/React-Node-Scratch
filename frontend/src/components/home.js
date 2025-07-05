@@ -158,7 +158,7 @@ export default function Home() {
 				<br />
 
 				<div className="tool-container">
-					<h3 className="tool-title">Book Club or Watch List</h3>
+					<h3 className="tool-title">Book Club</h3>
 					<div className="tool-details-container">
 						<div className="status-container">
 							<p>
