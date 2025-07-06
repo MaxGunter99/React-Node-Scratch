@@ -15,6 +15,7 @@ import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
 import VideoGamesIndex from "./components/VideoGames/index.js";
 import VideoGameView from "./components/VideoGames/view.js";
 import VideoGameForm from "./components/VideoGames/form.js";
+import Login from "./components/login.js"
 
 import BookHome from "./components/BookClub/bookHome.js";
 
@@ -70,6 +71,7 @@ export default function AppRouting() {
 					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit"/>} />
 					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add"/>} />
 					<Route path="bookClub" element={<BookHome />} />
+					<Route path="login" element={<Login />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>

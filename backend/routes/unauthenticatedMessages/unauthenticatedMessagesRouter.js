@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UnauthenticatedMessages = require("./unauthenticatedMessagesModel");
-const profanityMiddleware = require("../middleware/profanityMiddleware");
+const profanityMiddleware = require("../../middleware/profanityMiddleware");
 
 // GET ALL MESSAGES
 router.get("/", async (req, res) => {

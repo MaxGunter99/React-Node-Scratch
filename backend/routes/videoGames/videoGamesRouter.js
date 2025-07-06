@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const VideoGames = require("./videoGamesModel");
-const profanityMiddleware = require("../middleware/profanityMiddleware");
+const profanityMiddleware = require("../../middleware/profanityMiddleware");
 
 // GET ALL VIDEO GAMES
 router.get("/", async (req, res) => {

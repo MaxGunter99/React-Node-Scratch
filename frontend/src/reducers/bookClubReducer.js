@@ -1,26 +1,41 @@
 
-// import {
-//     LOGIN_SUCCESS,
-//     LOGIN_FAILURE
-// } from "../actions/bookClubActions";
+import {
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
+} from "../actions/bookClubActions";
 
 export const initialState = {
 	loading: false,
-	
-    isAuthenticated: true
+    error: null,
+    isAuthenticated: false
 };
 
 export const bookClubReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        // case FETCH_VIDEO_GAMES_START:
-        //     return {
-        //         ...state,
-        //         loading: true,
-        //         videoGames: [],
-        //         videoGameViewData: null,
-        //         error: null,
-        //     };
+        case LOGIN_START:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
+
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                isAuthenticated: true
+            }
+
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                isAuthenticated: false
+            }
 
         default:
             return state;
