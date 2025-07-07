@@ -15,21 +15,21 @@ class VideoGameForm extends Component {
 	}
 
 	componentDidMount() {
-        console.log( this.props )
-        if ( this.props.formMode === "edit" ) {
-            this.props.getVideoGame(this.props.id);
-            const updatedState = {
-                // ...this.state,
-                videoGameEdits: { ...this.props.videoGameViewData },
-            };
-            this.setState(updatedState);
-        }
+		console.log(this.props);
+		if (this.props.formMode === "edit") {
+			this.props.getVideoGame(this.props.id);
+			const updatedState = {
+				// ...this.state,
+				videoGameEdits: { ...this.props.videoGameViewData },
+			};
+			this.setState(updatedState);
+		}
 	}
 
 	componentDidUpdate(prevProps) {
 		if (!prevProps.videoGameViewData && this.props.videoGameViewData) {
 			this.setState({
-                ...this.state,
+				...this.state,
 				videoGameEdits: { ...this.props.videoGameViewData },
 			});
 		}
@@ -38,7 +38,7 @@ class VideoGameForm extends Component {
 	handleChanges = (event) => {
 		const { name, value } = event.target;
 		const updatedState = {
-            // ...this.state,
+			// ...this.state,
 			videoGameEdits: {
 				...this.state.videoGameEdits,
 				[name]: value,
@@ -50,18 +50,15 @@ class VideoGameForm extends Component {
 	submitChanges = async (event) => {
 		event.preventDefault();
 		try {
+			if (this.props.formMode === "edit") {
+				await this.props.updateVideoGame(this.state.videoGameEdits);
+			} else if (this.props.formMode === "add") {
+				await this.props.addVideoGame(this.state.videoGameEdits);
+			}
 
-            if ( this.props.formMode === "edit" ) {
-                await this.props.updateVideoGame(this.state.videoGameEdits);
-
-            } else if ( this.props.formMode === "add" ) {
-                await this.props.addVideoGame(this.state.videoGameEdits);
-            }
-
-            this.props.navigate(-1);
-
+			this.props.navigate(-1);
 		} catch (error) {
-            console.log( error )
+			console.log(error);
 			return this.setState(...this.state, { submittedUpdates: true });
 		}
 	};
@@ -95,43 +92,42 @@ class VideoGameForm extends Component {
 							onSubmit={this.submitChanges}
 							className="edit-video-game-form"
 						>
-                            { this.props.formMode === "edit" ? (
+							{this.props.formMode === "edit" ? (
+								<div className="edit-video-game-form-row disabled">
+									<label>
+										ID:
+										<input
+											className="form-field"
+											name="id"
+											value={this.state.videoGameEdits.id}
+											onChange={this.handleChanges}
+											disabled
+										/>
+									</label>
 
-                                <div className="edit-video-game-form-row disabled">
-                                    <label>
-                                        ID:
-                                        <input
-                                            className="form-field"
-                                            name="id"
-                                            value={this.state.videoGameEdits.id}
-                                            onChange={this.handleChanges}
-                                            disabled
-                                        />
-                                    </label>
+									<label>
+										UUID:
+										<input
+											className="form-field"
+											name="uuid"
+											value={this.state.videoGameEdits.uuid}
+											onChange={this.handleChanges}
+											disabled
+										/>
+									</label>
 
-                                    <label>
-                                        UUID:
-                                        <input
-                                            className="form-field"
-                                            name="uuid"
-                                            value={this.state.videoGameEdits.uuid}
-                                            onChange={this.handleChanges}
-                                            disabled
-                                        />
-                                    </label>
-
-                                    <label>
-                                        Created At:
-                                        <input
-                                            className="form-field"
-                                            name="created_at"
-                                            value={this.state.videoGameEdits.created_at}
-                                            // onChange={this.handleChanges}
-                                            disabled
-                                        />
-                                    </label>
-                                </div>
-                            ) : null }
+									<label>
+										Created At:
+										<input
+											className="form-field"
+											name="created_at"
+											value={this.state.videoGameEdits.created_at}
+											// onChange={this.handleChanges}
+											disabled
+										/>
+									</label>
+								</div>
+							) : null}
 
 							<div className="edit-video-game-form-row">
 								<label>
@@ -141,7 +137,7 @@ class VideoGameForm extends Component {
 										name="name"
 										value={this.state.videoGameEdits.name}
 										// onChange={this.handleChanges}
-                                        required
+										required
 									/>
 								</label>
 
@@ -261,7 +257,7 @@ class VideoGameForm extends Component {
 										name="platform"
 										value={this.state.videoGameEdits.platform}
 										// onChange={this.handleChanges}
-                                        defaultValue={"other"}
+										defaultValue={"other"}
 									>
 										<option value={"pc"}>PC</option>
 										<option value={"steam_deck"}>Steam Deck</option>
@@ -293,7 +289,7 @@ class VideoGameForm extends Component {
 										name="started_at"
 										value={this.state.videoGameEdits.started_at}
 										// onChange={this.handleChanges}
-                                        // defaultValue={new Date().toISOString().split("T")[0]}
+										// defaultValue={new Date().toISOString().split("T")[0]}
 									/>
 								</label>
 								<label>

@@ -40,7 +40,7 @@
 	height: var(--standard-icon-size);
 	width: var(--standard-icon-size);
 	color: black;
-	transition: var(--standard-transition)
+	transition: var(--standard-transition);
 }
 
 .add-button:hover {

@@ -1,9 +1,9 @@
-.login-container {
+.register-container {
 	width: 100%;
 	text-align: left;
 }
 
-.login-form-container {
+.register-form-container {
 	/* border: 3px solid yellow; */
 	height: 100%;
 	display: flex;
@@ -12,7 +12,7 @@
 	justify-content: center;
 }
 
-.login-form {
+.register-form {
 	/* border: 3px solid red; */
 	background-color: var(--primary-background-color);
 	display: flex;
@@ -23,7 +23,7 @@
 	border-radius: var(--standard-border-radius);
 }
 
-.login-form-label {
+.register-form-label {
 	display: flex;
 	flex-direction: column;
 	/* padding: var(--standard-padding); */
@@ -31,7 +31,7 @@
 	text-align: left;
 }
 
-.login-button {
+.register-button {
 	/* border-radius: var(--standard-border-radius); */
 	margin: var(--standard-padding);
 }

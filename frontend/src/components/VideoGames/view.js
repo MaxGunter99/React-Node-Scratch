@@ -7,32 +7,28 @@ import "../../css/videoGameView.css";
 import { getVideoGame, deleteVideoGame } from "../../actions/videoGameActions";
 
 class VideoGameView extends Component {
-
 	componentDidMount() {
 		this.props.getVideoGame(this.props.id);
 	}
 
 	goBack = () => {
 		return this.props.navigate(-1);
-	}
-	
-	deleteGame = async () => {
+	};
 
+	deleteGame = async () => {
 		var videoGameDeleted = false;
 
 		try {
-			await this.props.deleteVideoGame( this.props.id );
+			await this.props.deleteVideoGame(this.props.id);
 			videoGameDeleted = true;
-			
-		} catch ( error ) {
-			console.log( "Error deleting Video Game: ", error )
+		} catch (error) {
+			console.log("Error deleting Video Game: ", error);
 		}
 
-		if ( videoGameDeleted === true ) {
+		if (videoGameDeleted === true) {
 			return this.props.navigate(-1);
 		}
-		
-	}
+	};
 
 	render() {
 		return (
@@ -69,7 +65,7 @@ class VideoGameView extends Component {
 										<ArrowLeft className="back-button icon" />
 									</Link>
 									<Link to={`/videoGames/${this.props.videoGameViewData.id}/edit`} title="edit">
-										<Edit className="edit-button icon"/>
+										<Edit className="edit-button icon" />
 									</Link>
 									<Link onClick={this.deleteGame} title="delete">
 										<Trash className="delete-button icon" />

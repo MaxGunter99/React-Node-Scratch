@@ -15,7 +15,8 @@ import UnauthenticatedMessages from "./components/unauthenticatedMessages.js";
 import VideoGamesIndex from "./components/VideoGames/index.js";
 import VideoGameView from "./components/VideoGames/view.js";
 import VideoGameForm from "./components/VideoGames/form.js";
-import Login from "./components/login.js"
+import Login from "./components/login.js";
+import Register from "./components/register.js";
 
 import BookHome from "./components/BookClub/bookHome.js";
 
@@ -23,11 +24,10 @@ export default function AppRouting() {
 	const VideoGameViewWrapper = () => {
 		const { id } = useParams();
 		const navigate = useNavigate();
-		return <VideoGameView id={id} navigate={navigate}/>;
+		return <VideoGameView id={id} navigate={navigate} />;
 	};
 
-	const VideoGameFormWrapper = ({formMode}) => {
-	
+	const VideoGameFormWrapper = ({ formMode }) => {
 		const { id } = useParams();
 		const navigate = useNavigate();
 		return <VideoGameForm id={id} navigate={navigate} formMode={formMode} />;
@@ -68,10 +68,11 @@ export default function AppRouting() {
 					<Route path="unauthenticatedMessages" element={<UnauthenticatedMessages />} />
 					<Route path="videoGames" element={<VideoGamesIndex />} />
 					<Route path="videoGames/:id" element={<VideoGameViewWrapper />} />
-					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit"/>} />
-					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add"/>} />
+					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit" />} />
+					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add" />} />
 					<Route path="bookClub" element={<BookHome />} />
 					<Route path="login" element={<Login />} />
+					<Route path="register" element={<Register />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>
