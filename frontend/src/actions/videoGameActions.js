@@ -66,9 +66,10 @@ export const updateVideoGame = (data) => (dispatch) => {
 			});
 		})
 		.catch((err) => {
+			let errorMessage = err?.response?.data?.message || err.message
 			dispatch({
 				type: UPDATE_VIDEO_GAME_FAILURE,
-				payload: err.message,
+				payload: errorMessage,
 			});
 		});
 };
@@ -85,9 +86,10 @@ export const addVideoGame = (data) => (dispatch) => {
 			});
 		})
 		.catch((err) => {
+			let errorMessage = err?.response?.data?.message || err.message
 			dispatch({
 				type: ADD_VIDEO_GAME_FAILURE,
-				payload: err.message,
+				payload: errorMessage,
 			});
 		});
 };
@@ -104,9 +106,10 @@ export const deleteVideoGame = (id) => (dispatch) => {
 			});
 		})
 		.catch((err) => {
+			let errorMessage = err?.response?.data?.message || err.message
 			dispatch({
 				type: DELETE_VIDEO_GAME_FAILURE,
-				payload: err.message,
+				payload: errorMessage,
 			});
 		});
 };

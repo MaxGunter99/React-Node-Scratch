@@ -1,5 +1,5 @@
 
-import { useEffect , useState } from "react";
+import { Link } from "react-router-dom"
 import BookList from "./bookList"
 import { useSelector, useDispatch } from "react-redux";
 
@@ -19,14 +19,15 @@ export default function BookHome() {
                 
                 <div>
                     {/* If logged in */}
-                    <button>Account</button>
+                    {/* <button>Account</button> */}
+                    <Link to="/register">Login</Link>
                 </div>
 
             ) : (
     
                 <div>
                     {/* If not logged in */}
-                    <button>Login</button>
+                    <Link to="/login">Login</Link>
                 </div>
             )}
 

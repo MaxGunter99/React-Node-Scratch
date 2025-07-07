@@ -1,14 +1,14 @@
 
 const express = require("express");
-const router = express.Router();
+const authRouter = express.Router();
 const bcrypt = require( "bcryptjs" )
 const jwt = require( "jsonwebtoken" )
 const users = require( "../user/userModel" );
-const secret = require( '../config/secrets' )
+const secret = require( '../../config/secrets' );
 const profanityMiddleware = require("../../middleware/profanityMiddleware");
 
 // REGISTER USER
-router.post( "/register" , profanityMiddleware, ( req, res ) => {
+authRouter.post( "/register" , profanityMiddleware, ( req, res ) => {
 
     if ( req.body.username && req.body.password ) {
         let user = req.body;
@@ -28,23 +28,27 @@ router.post( "/register" , profanityMiddleware, ( req, res ) => {
 })
 
 // LOGIN USER
-router.post( "/login", profanityMiddleware, ( req, res ) => {
+authRouter.post( "/login", profanityMiddleware, ( req, res ) => {
 
     if ( req?.body?.username && req?.body?.password ) {
         let { username, password } = req.body;
-        users.findBy({ username })
-            .first()
-            .then( user => {
-                if ( user && bcrypt.compareSync( password, user.password ) ) {
-                    const token = generateToken( user );
-                    return res.status( 200 ).json({ message: `Login Success! Welcome ${user.username}`, token })
-                } else {
-                    return res.status( 401 ).json({ message: "Invalid Credentials, please try again" })
-                }
-            })
-            .catch( error => {
-                return res.status( 500 ).json({ message: "Server error, please try again.", error })
-            })
+        try {
+            users.findBy({ username })
+                .first()
+                .then( user => {
+                    if ( user && bcrypt.compareSync( password, user.password ) ) {
+                        const token = generateToken( user );
+                        return res.status( 200 ).json({ message: `Login Success! Welcome ${user.username}`, token })
+                    } else {
+                        return res.status( 401 ).json({ message: "Invalid Credentials, please try again" })
+                    }
+                })
+                .catch( error => {
+                    return res.status( 500 ).json({ message: "Server error, please try again.", error })
+                })
+        } catch ( error ) {
+            return res.status( 404 ).json({ message: "Server error, user not found", error })
+        }
     } else {
         return res.status( 406 ).json({ message: "Error Registering - Missing Username or Password" })
     }
@@ -65,4 +69,4 @@ function generateToken( user ) {
     return jwt.sign( payload, secret.jwtSecret, options )
 }
 
-module.exports = router;
+module.exports = authRouter;

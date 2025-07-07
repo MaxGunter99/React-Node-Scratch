@@ -9,6 +9,7 @@ const cors = require("cors");
 const unauthenticatedList = require("../routes/unauthenticatedMessages/unauthenticatedMessagesRouter");
 const videoGames = require("../routes/videoGames/videoGamesRouter");
 const users = require("../routes/user/userRouter");
+const authRouter = require("../routes/auth/authRouter");
 
 // Apply Middleware
 server.use(express.json());
@@ -20,6 +21,7 @@ server.use(cors());
 server.use("/unauthenticatedMessages", unauthenticatedList);
 server.use("/videoGames", videoGames);
 server.use("/users", users);
+server.use("/auth", authRouter);
 
 // Sanity Check
 server.get("/", (req, res) => {

@@ -33,7 +33,7 @@ export const bookClubReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: null,
+                error: action.payload,
                 isAuthenticated: false
             }
 
