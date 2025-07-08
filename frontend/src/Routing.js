@@ -17,10 +17,32 @@ import VideoGameView from "./components/VideoGames/view.js";
 import VideoGameForm from "./components/VideoGames/form.js";
 import Login from "./components/login.js";
 import Register from "./components/register.js";
-
 import BookHome from "./components/BookClub/bookHome.js";
+import BookProfile from "./components/BookClub/bookProfile.js";
+
+import { isAuthenticated, parseJwt } from "./utils";
+import { useEffect } from "react";
 
 export default function AppRouting() {
+
+	useEffect(() => {
+		const token = localStorage.getItem("jwt");
+		if (!token) return;
+
+		const payload = parseJwt(token);
+		if (!payload || !payload.exp) return;
+
+		const timeUntilExpire = (payload.exp * 1000) - Date.now();
+
+		const timeout = setTimeout(() => {
+			localStorage.removeItem("jwt");
+			// dispatch({ type: "LOGOUT" }); // Or whatever action you use
+		}, timeUntilExpire);
+
+		return () => clearTimeout(timeout);
+	}, []);
+
+
 	const VideoGameViewWrapper = () => {
 		const { id } = useParams();
 		const navigate = useNavigate();
@@ -71,6 +93,7 @@ export default function AppRouting() {
 					<Route path="videoGames/:id/edit" element={<VideoGameFormWrapper formMode="edit" />} />
 					<Route path="videoGames/add" element={<VideoGameFormWrapper formMode="add" />} />
 					<Route path="bookClub" element={<BookHome />} />
+					<Route path="bookClub/profile" element={<BookProfile />} />
 					<Route path="login" element={<Login />} />
 					<Route path="register" element={<Register />} />
 					<Route path="*" element={<PageNotFound />} />

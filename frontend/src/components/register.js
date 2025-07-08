@@ -2,16 +2,25 @@ import "../css/register.css";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../actions/bookClubActions";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Register() {
 	const state = useSelector((state) => state.bookClubReducer);
 	const errorMessage = useSelector((state) => state.bookClubReducer.error);
+    const location = useLocation();
+    const fromPage = new URLSearchParams(location.search).get("from") || "bookClub";
 	const dispatch = useDispatch();
+    const navigate = useNavigate()
 
 	const [password, setPassword] = useState(null);
 	const [confirmPassword, setConfirmPassword] = useState(null);
 	const [passwordError, setPasswordError] = useState(null);
+
+    useEffect(() => {
+        if (state.isAuthenticated) {
+            navigate( `/${fromPage}` );
+        }
+    }, [state.isAuthenticated, navigate]);
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
@@ -32,9 +41,6 @@ export default function Register() {
 		const displayName = formData.get("displayName");
         
         const userData = { username, password, email, displayName }
-        console.log( userData )
-
-		// console.log( username, password )
 
 		try {
 			await dispatch(register(userData));

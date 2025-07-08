@@ -1,33 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BookList from "./bookList";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { validateAuthentication } from "../../actions/bookClubActions";
 
 export default function BookHome() {
 	const state = useSelector((state) => state.bookClubReducer);
 	const authenticated = useSelector((state) => state.bookClubReducer.isAuthenticated);
 	const dispatch = useDispatch();
+    const navigate = useNavigate()
 
-	console.log(state);
-	console.log(authenticated);
+    useEffect( () => {
+        dispatch( validateAuthentication() )
+        if ( !authenticated ) {
+            navigate("/login?from=bookClub")
+        }
+    }, [ authenticated ])
 
 	return (
 		<div className="book-home-container">
-			<h1>Book Home</h1>
-			{authenticated === true ? (
-				<div>
-					{/* If logged in */}
-					{/* <button>Account</button> */}
-					<Link to="/register">Login</Link>
-				</div>
-			) : (
-				<div>
-					{/* If not logged in */}
-					<Link to="/login">Login</Link>
-				</div>
-			)}
 
+            <div>
+                <div>
+                    <h1>Book Home</h1>
+                    <p>authenticated: {String(authenticated )}</p>
+                </div>
+
+                <div>
+                    <Link to="profile">Profile</Link>
+                </div>
+
+            </div>
 			{/* <p>this is the home page, it will serve as a landing page, you can see things but if you want to do anything you'll have to log in</p> */}
-			{/* <BookList /> */}
+
+			<BookList />
+
 		</div>
 	);
 }

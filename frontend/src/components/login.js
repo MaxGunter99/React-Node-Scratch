@@ -2,14 +2,24 @@ import "../css/login.css";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../actions/bookClubActions";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Login() {
 	// const [ errorMessage, setErrorMessage ] = useState(null)
 
 	const state = useSelector((state) => state.bookClubReducer);
 	const errorMessage = useSelector((state) => state.bookClubReducer.error);
+    const location = useLocation();
+    const fromPage = new URLSearchParams(location.search).get("from") || "bookClub";
 	const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (state.isAuthenticated) {
+            navigate(`/${fromPage}`);
+        }
+    }, [state.isAuthenticated, navigate]);
+
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -25,7 +35,7 @@ export default function Login() {
 			await dispatch(login({ username, password }));
 		} catch (error) {
 			console.log("error", error);
-			// setErrorMessage( error.message )
+            return
 		}
 	};
 

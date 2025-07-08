@@ -5,12 +5,17 @@ import {
 	REGISTER_START,
 	REGISTER_SUCCESS,
 	REGISTER_FAILURE,
+    VALIDATING_USER,
+    LOGIN_USER,
+    LOGOUT_USER
 } from "../actions/bookClubActions";
+
+import { isAuthenticated } from "../utils";
 
 export const initialState = {
 	loading: false,
 	error: null,
-	isAuthenticated: false,
+	isAuthenticated: isAuthenticated(),
 };
 
 export const bookClubReducer = (state = initialState, action) => {
@@ -58,6 +63,25 @@ export const bookClubReducer = (state = initialState, action) => {
 				...state,
 				loading: false,
 				error: action.payload,
+				isAuthenticated: false,
+			};
+
+		case VALIDATING_USER:
+			return {
+				...state,
+				loading: true,
+				isAuthenticated: null,
+			};
+		case LOGIN_USER:
+			return {
+				...state,
+				loading: true,
+				isAuthenticated: action.payload,
+			};
+		case LOGOUT_USER:
+			return {
+				...state,
+				loading: true,
 				isAuthenticated: false,
 			};
 
