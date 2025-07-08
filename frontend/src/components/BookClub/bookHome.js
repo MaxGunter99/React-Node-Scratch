@@ -17,6 +17,10 @@ export default function BookHome() {
         }
     }, [ authenticated ])
 
+    const handleLogOut = () => {
+        navigate("/login?from=bookClub")
+    }
+
 	return (
 		<div className="book-home-container">
 
@@ -27,7 +31,8 @@ export default function BookHome() {
                 </div>
 
                 <div>
-                    <Link to="profile">Profile</Link>
+                    <Link to="profile"><button>Profile</button></Link>
+                    <button onClick={handleLogOut}>Logout</button>
                 </div>
 
             </div>

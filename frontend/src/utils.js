@@ -12,7 +12,10 @@ export function parseJwt(token) {
 
 export function isAuthenticated() {
 	const token = localStorage.getItem("jwt");
-	if (!token) return false;
+	if (!token) {
+        localStorage.removeItem("userData");
+        return false;
+    }
 
 	const payload = parseJwt(token);
 	if (!payload || !payload.exp) return false;
@@ -21,6 +24,7 @@ export function isAuthenticated() {
     const isAuthenticatedValue = payload.exp > currentTime
     if ( !isAuthenticatedValue ) {
         localStorage.removeItem("jwt");
+        localStorage.removeItem("userData");
     }
 	return isAuthenticatedValue;
 }

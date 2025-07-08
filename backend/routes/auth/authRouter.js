@@ -36,7 +36,7 @@ authRouter.post("/login", profanityMiddleware, (req, res) => {
 				.then((user) => {
 					if (user && bcrypt.compareSync(password, user.password)) {
 						const token = generateToken(user);
-						return res.status(200).json({ message: `Login Success! Welcome ${user.username}`, token });
+						return res.status(200).json({ message: `Login Success! Welcome ${user.username}`, token: token, id: user.id, uuid: user.uuid });
 					} else {
 						return res.status(401).json({ message: "Invalid Credentials, please try again" });
 					}
@@ -59,8 +59,9 @@ function generateToken(user) {
 	};
 
 	const options = {
-		expiresIn: "1 minute",
+		expiresIn: secret.tokenExpiration,
 	};
+    console.log( secret )
 
 	return jwt.sign(payload, secret.jwtSecret, options);
 }

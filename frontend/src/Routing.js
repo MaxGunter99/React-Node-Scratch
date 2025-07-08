@@ -36,6 +36,7 @@ export default function AppRouting() {
 
 		const timeout = setTimeout(() => {
 			localStorage.removeItem("jwt");
+			localStorage.removeItem("username");
 			// dispatch({ type: "LOGOUT" }); // Or whatever action you use
 		}, timeUntilExpire);
 

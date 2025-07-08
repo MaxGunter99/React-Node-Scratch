@@ -23,6 +23,7 @@ function findBy(user) {
 
 async function findById(id) {
 	let selectedUser = await db(tableName).select("*").where({ id }).first();
+    console.log( selectedUser )
 	return selectedUser;
 }
 
